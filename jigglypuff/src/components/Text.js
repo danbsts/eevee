@@ -9,7 +9,16 @@ const Title = styled.div`
 
 const Header = styled.div`
   color: gray;
-  font: 20px Roboto, Sans-serif;
+  font-size: 16px;
+`;
+
+const Bold = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+`;
+
+const Paragraph = styled.div`
+  font-size: 16px;
 `;
 
 function Text({ holder, text, style }) {
@@ -19,7 +28,10 @@ function Text({ holder, text, style }) {
   if(holder === 'header') {
     return <Header style={style}>{text}</Header>;
   }
-  return <p style={style}>{text}</p>;
+  if(holder === 'bold') {
+    return <Bold style={style}>{text}</Bold>;
+  }
+  return <Paragraph style={style}>{text}</Paragraph>;
 }
 
 export default Text;

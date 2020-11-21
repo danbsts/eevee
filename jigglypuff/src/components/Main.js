@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import FlexLayout from "./FlexLayout";
 import { Map, Text, Card, Clock } from "./index";
 
 const Container = styled.div`
@@ -27,6 +28,22 @@ function Main() {
           />
           <div style={{ background: "#EFEFEF", padding: "15px" }}>
             <Clock />
+          </div>
+          <div style={{ padding: "20px" }}>
+            <FlexLayout>
+              <Text text={53} holder="bold" style={{ fontSize: "24px" }} />
+              <Text
+                text="&nbsp; infrações cometidas"
+                style={{ alignSelf: "flex-end" }}
+              />
+            </FlexLayout>
+            <FlexLayout style={{ padding: "10px 0 0" }}>
+              <Text text={219} holder="bold" style={{ fontSize: "24px" }} />
+              <Text
+                text="&nbsp; infrações cometidas"
+                style={{ alignSelf: "flex-end" }}
+              />
+            </FlexLayout>
           </div>
         </Card>
       </div>
