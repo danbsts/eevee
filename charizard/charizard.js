@@ -1,5 +1,8 @@
 const grpc = require('grpc');
-const protoLoader = require("@grpc/proto-loader")
+const protoLoader = require("@grpc/proto-loader");
+const { Observable } = require('rxjs');
+const { filter } = require('rxjs/operators');
+const { read } = require('fs');
 const packageDef = protoLoader.loadSync("../protocol/eevee.proto", {});
 const grpcObject = grpc.loadPackageDefinition(packageDef);
 var WebSocketServer = require('ws').Server;
@@ -9,22 +12,44 @@ const eeveePackage = grpcObject.eevee;
 const client = new eeveePackage.eeveeService("127.0.0.1:40000", grpc.credentials.createInsecure());
 var lastSentTraficData;
 var lastReceivedTraficData;
-var requiredIds = [];
-for(var i = 0; i < 200; i++){
-  requiredIds.push(i.toString());
-}
-readTraficData()
+var requiredIds = [5962];
+// for(var i = 0; i < 200; i++){
+//   requiredIds.push(i.toString());
+// }
+const observable = readTraficData()
+  .pipe(filter(data => requiredIds.includes(data.id)))
+observable.subscribe(data => {
+  console.log(data);
+});
 
-function readTraficData(){
+function processTrafic(data) {
+  const quoteExp = new RegExp("\"", 'g');
+  const reads = {};
+  data.trafic.forEach(feed => {
+    const id = Number(feed.id.replace(quoteExp, ""));
+    reads[id] = {
+      id,
+      speed: feed.speed.map(speed => Number(speed)),
+      timeInterval: feed.timeInterval.replace(quoteExp, ""),
+      date: feed.date.replace(quoteExp, ""),
+    };
+  });
+  return reads;
+}
+
+function readTraficData() {
   const emptyData = {};
   const channel = client.getTraficData(emptyData);
 
-  channel.on("data", batchTraficData => {
-    console.log("Batch trafic data received");
-    lastReceivedTraficData = batchTraficData;
-  });
-
   channel.on('end', process.exit);
+
+  return new Observable(subscriber => {
+    channel.on("data", batchTraficData => {
+      const reads = processTrafic(batchTraficData);
+      Object.values(reads).forEach(data => subscriber.next(data));
+      lastReceivedTraficData = batchTraficData;
+    });
+  });
 }
 
 wss.on('connection', function(ws) {
