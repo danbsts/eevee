@@ -1,5 +1,8 @@
-const express = require("express");
 const bodyParser = require("body-parser");
+const express = require("express");
+
+const { loadSpeedTrapsData } = require("./speed_traps");
+const sites = require("./sites.json");
 
 const EXPRESS_PORT = 10077;
 
@@ -11,31 +14,21 @@ function sendResponse(res, body) {
     res.status(200).send(body);
 }
 
-app.get("/speed-traps/", (req, res) => {
-    const lat = req.query.lat;
-    const long = req.query.long;
-    const radius = req.query.radius;
+loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
+    app.get("/sites/", (_, res) => {
+        const body = Object.values(sites);
 
-    const body = [
-        {
-            id: 5942,
-            lat: 8.52323213,
-            long: 4.12312312,
-        }
-    ];
+        sendResponse(res, body);
+    });
 
-    sendResponse(res, body);
+    app.get("/sites/:site/", (req, res) => {
+        const siteId = +req.params.site;
+    
+        const body = (siteToSpeedTraps[siteId] || [])
+            .map(speedTrapId => speedTraps[speedTrapId])
+    
+        sendResponse(res, body);
+    });
+    
+    app.listen(EXPRESS_PORT, () => console.log(`Ponyta is running on port ${EXPRESS_PORT}`));    
 });
-
-app.get("/sites/", (req, res) => {
-    const body = [
-        {
-            name: "Recife",
-            lat: 0.0000123,
-            long: 8.12312,
-        },
-    ];
-    sendResponse(res, body);
-});
-
-app.listen(EXPRESS_PORT, () => console.log(`Ponyta is running on port ${EXPRESS_PORT}`));
