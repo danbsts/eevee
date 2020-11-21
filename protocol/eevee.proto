@@ -7,13 +7,13 @@ service eeveeService {
 }
 
 message BatchTraficData {
-  repeated TraficData trafic_data = 1;
+  repeated TraficData trafic = 1;
 }
 
 message TraficData {
   string id = 1;
-  repeated int32 speed_data = 2;
-  string time_interval = 3;
+  repeated string speed = 2;
+  string timeInterval = 3;
   string date = 4;
 }
 
