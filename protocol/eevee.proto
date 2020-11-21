@@ -3,7 +3,11 @@ syntax = "proto3";
 package eevee;
 
 service eeveeService {
-  rpc getTraficData(EmptyData) returns (stream TraficData);
+  rpc getTraficData(EmptyData) returns (stream BatchTraficData);
+}
+
+message BatchTraficData {
+  repeated TraficData trafic_data = 1;
 }
 
 message TraficData {
