@@ -1,17 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import FlexLayout from "./FlexLayout";
-import { Map, Text, Card, Clock } from "./index";
-
-const Container = styled.div`
-  display: flex;
-  justify-content: space-around;
-  padding: 30px;
-`;
+import { Map, Text, Card, Clock, FlexLayout } from "../../components";
 
 function Main() {
   return (
-    <Container>
+    <FlexLayout justify="around" style={{padding: '30px'}}>
       <div>
         <Text style={{ padding: "10px" }} holder="header" text="Navegaçao" />
         <Map />
@@ -29,7 +21,7 @@ function Main() {
           <div style={{ background: "#EFEFEF", padding: "15px" }}>
             <Clock />
           </div>
-          <div style={{ padding: "20px" }}>
+          <div style={{ padding: "20px" }}> 
             <FlexLayout>
               <Text text={53} holder="bold" style={{ fontSize: "24px" }} />
               <Text
@@ -47,7 +39,7 @@ function Main() {
           </div>
         </Card>
       </div>
-    </Container>
+    </FlexLayout>
   );
 }
 
