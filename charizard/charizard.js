@@ -5,8 +5,6 @@ const grpcObject = grpc.loadPackageDefinition(packageDef);
 var WebSocketServer = require('ws').Server;
 wss = new WebSocketServer({port: 8080, path: '/traficData'});
 const eeveePackage = grpcObject.eevee;
-const mongo = require('mongodb');
-const MongoClient = mongo.MongoClient;
 
 const client = new eeveePackage.eeveeService("127.0.0.1:40000", grpc.credentials.createInsecure());
 var lastSentTraficData;
@@ -18,8 +16,8 @@ function readTraficData(){
   const channel = client.getTraficData(emptyData);
 
   channel.on("data", batchTraficData => {
-    console.log("Batch trafic data received: "+ batchTraficData);
-    sendDataToUi()
+    console.log("Batch trafic data received: " + batchTraficData);
+    lastReceivedTraficData = batchTraficData;
   });
 
   channel.on('end', process.exit);
