@@ -3,12 +3,16 @@ const protoLoader = require("@grpc/proto-loader")
 const packageDef = protoLoader.loadSync("../protocol/eevee.proto", {});
 const grpcObject = grpc.loadPackageDefinition(packageDef);
 var WebSocketServer = require('ws').Server;
-wss = new WebSocketServer({port: 8080, path: '/traficData'});
+var wss = new WebSocketServer({port: 10003, path: '/traficData'});
 const eeveePackage = grpcObject.eevee;
 
 const client = new eeveePackage.eeveeService("127.0.0.1:40000", grpc.credentials.createInsecure());
 var lastSentTraficData;
 var lastReceivedTraficData;
+var requiredIds = [];
+for(var i = 0; i < 200; i++){
+  requiredIds.push(i.toString());
+}
 readTraficData()
 
 function readTraficData(){
@@ -30,16 +34,25 @@ wss.on('connection', function(ws) {
       lastSentTraficData = lastReceivedTraficData;
     }
   },1000);
+
+  ws.on('data', function(data) {
+    var idList = data.ids;
+    console.log('New id list received in server: ' + idList);
+    requiredIds = idList;
+  });
+
   console.log('New connection');
 });
 
 function sendDataToUi(ws, batchTraficData) {
-  var processedBatchTraficData = processBatchTraficData(batchTraficData);
-  console.log("Sending processed batch trafic data");
-  ws.send(processedBatchTraficData);
+  var filteredBatchTraficData = filterBatchTraficData(batchTraficData);
+  console.log("Sending filtered batch trafic data");
+  ws.send(filteredBatchTraficData);
 }
 
-// TODO: ask mongo for informations on frafic id
-function processBatchTraficData(batchTraficData) {
-  return batchTraficData;
+function filterBatchTraficData(batchTraficData) {
+  traficDataList = batchTraficData.trafic_data;
+  return traficDataList.filter(traficData => {
+    requiredIds.includes(traficData.id) 
+  })
 }
