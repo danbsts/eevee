@@ -20,7 +20,7 @@ function readTraficData(){
   const channel = client.getTraficData(emptyData);
 
   channel.on("data", batchTraficData => {
-    console.log("Batch trafic data received: " + JSON.stringify(batchTraficData));
+    console.log("Batch trafic data received");
     lastReceivedTraficData = batchTraficData;
   });
 
@@ -37,7 +37,7 @@ wss.on('connection', function(ws) {
   });
 
   var interval = setInterval( function() {
-    if(lastSentTraficData == lastReceivedTraficData){
+    if(lastSentTraficData != lastReceivedTraficData){
       sendDataToUi(ws, lastReceivedTraficData);
       lastSentTraficData = lastReceivedTraficData;
     }
@@ -46,13 +46,14 @@ wss.on('connection', function(ws) {
 
 function sendDataToUi(ws, batchTraficData) {
   var filteredBatchTraficData = filterBatchTraficData(batchTraficData);
-  console.log("Sending filtered batch trafic data");
-  ws.send(filteredBatchTraficData);
+  ws.send(JSON.stringify({
+    trafic: batchTraficData.trafic
+  }));
 }
 
 function filterBatchTraficData(batchTraficData) {
   traficDataList = batchTraficData.trafic;
   return traficDataList.filter(traficData => {
-    requiredIds.includes(traficData.id) 
+    return requiredIds.includes(traficData.id) 
   })
 }
