@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package eevee;
+
+service eeveeService {
+  rpc getTraficData(EmptyData) returns (stream TraficData);
+}
+
+message TraficData {
+  string id = 1;
+  repeated int32 speed_data = 2;
+  string time_interval = 3;
+  string date = 4;
+}
+
+message EmptyData {
+}
