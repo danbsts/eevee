@@ -10,8 +10,7 @@ var wss = new WebSocketServer({port: 10003, path: '/traficData'});
 const eeveePackage = grpcObject.eevee;
 
 const client = new eeveePackage.eeveeService("127.0.0.1:40000", grpc.credentials.createInsecure());
-var lastSentTraficData;
-var lastReceivedTraficData;
+var toBeSentTraficData = [];
 var requiredIds = [5962];
 // for(var i = 0; i < 200; i++){
 //   requiredIds.push(i.toString());
@@ -19,7 +18,7 @@ var requiredIds = [5962];
 const observable = readTraficData()
   .pipe(filter(data => requiredIds.includes(data.id)))
 observable.subscribe(data => {
-  console.log(data);
+  toBeSentTraficData.push(data);
 });
 
 function processTrafic(data) {
@@ -62,23 +61,15 @@ wss.on('connection', function(ws) {
   });
 
   var interval = setInterval( function() {
-    if(lastSentTraficData != lastReceivedTraficData){
-      sendDataToUi(ws, lastReceivedTraficData);
-      lastSentTraficData = lastReceivedTraficData;
+    if(toBeSentTraficData.length != 0){
+      sendDataToUi(ws, toBeSentTraficData);
+      toBeSentTraficData = [];
     }
   },1000);
 });
 
 function sendDataToUi(ws, batchTraficData) {
-  var filteredBatchTraficData = filterBatchTraficData(batchTraficData);
   ws.send(JSON.stringify({
-    trafic: batchTraficData.trafic
+    trafic: batchTraficData
   }));
-}
-
-function filterBatchTraficData(batchTraficData) {
-  traficDataList = batchTraficData.trafic;
-  return traficDataList.filter(traficData => {
-    return requiredIds.includes(traficData.id) 
-  })
 }

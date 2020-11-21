@@ -13,8 +13,10 @@ getTrapList(siteData[0].id);
 
 subject.subscribe(
   batchTraficData => {
-    console.log("PURO " + batchTraficData.toString())
-    console.log('Data received: ' + JSON.stringify(batchTraficData));
+    batchTraficData.trafic.forEach(element => {
+      traficData.push(element);
+    });
+    console.log('Data received, new trafic size: ' + traficData.length);
   },
   err => console.log(err)
 );
@@ -44,7 +46,9 @@ function sentCharizardIdList(trapData){
   for (trap in trapData){
     idList.push(trap.id);
   }
+  /*
   subject.send({
-    ids: idList
+    ids: idLisst
   }); 
+  */
 }
