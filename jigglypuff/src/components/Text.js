@@ -12,14 +12,14 @@ const Header = styled.div`
   font: 20px Roboto, Sans-serif;
 `;
 
-function Text({ holder, text }) {
+function Text({ holder, text, style }) {
   if(holder === 'title') {
-    return <Title>{text}</Title>;
+    return <Title style={style}>{text}</Title>;
   }
   if(holder === 'header') {
-    return <Header>{text}</Header>;
+    return <Header style={style}>{text}</Header>;
   }
-  return <p>{text}</p>;
+  return <p style={style}>{text}</p>;
 }
 
 export default Text;
