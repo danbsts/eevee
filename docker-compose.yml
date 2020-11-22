@@ -23,6 +23,8 @@ services:
     ports:
       - 10077:10077
     restart: always
+    depends_on:
+      - metapod
   jigglypuff:
     container_name: jigglypuff
     build:
