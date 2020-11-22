@@ -1,5 +1,7 @@
+const { count } = require("console");
 const csv = require("csv-parser");
 const fs = require("fs");
+var trapData = require('./trap_data.json');
 
 if (typeof(Number.prototype.toRad) === "undefined") {
     Number.prototype.toRad = function() {
@@ -25,30 +27,25 @@ function distance(lon1, lat1, lon2, lat2) {
 }
 
 function loadSpeedTrapsData(sites, callback) {
-    const flatSpeedTraps = [];
+    speedTraps = {};
+    siteToSpeedTraps = {};
 
-    fs.createReadStream("speed_traps.csv")
-        .pipe(csv())
-        .on("data", data => flatSpeedTraps.push(data))
-        .on("end", () => {
-            speedTraps = {};
-            siteToSpeedTraps = {};
-            flatSpeedTraps.forEach(speedTrap => {
-                speedTraps[speedTrap.id] = speedTrap;
+    trapData.forEach(speedTrap => {
+        speedTraps[speedTrap._id] = speedTrap;
 
-                Object.entries(sites).forEach(entry => {
-                    const [ siteId, site ] = entry;
-                    const d = distance(site.long, site.lat, speedTrap.long, speedTrap.lat);
-                    if (d <= site.radius) {
-                        if (!siteToSpeedTraps.hasOwnProperty(siteId)) {
-                            siteToSpeedTraps[siteId] = [];
-                        }
-                        siteToSpeedTraps[siteId].push(speedTrap.id);
-                    }
-                });
-            });
-            callback(speedTraps, siteToSpeedTraps);
+        Object.entries(sites).forEach(entry => {
+            const [ siteId, site ] = entry;
+            const d = distance(site.long, site.lat, speedTrap.longitude, speedTrap.latitude);
+            if (d <= site.radius) {
+                if (!siteToSpeedTraps.hasOwnProperty(siteId)) {
+                    siteToSpeedTraps[siteId] = [];
+                }
+                siteToSpeedTraps[siteId].push(speedTrap._id);
+            }
         });
+    });
+
+    callback(speedTraps, siteToSpeedTraps);
 }
 
 module.exports = {

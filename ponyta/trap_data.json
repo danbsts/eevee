@@ -1,0 +1,1118 @@
+[
+  {
+    "_id": 1,
+    "equipamento": "5941",
+    "tipo": "Lombada",
+    "logradouro": "AV. MAL. MASCARENHAS DE MORAES, EM FRENTE AEROPORTO - SENT. PRAZERES",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1309702,
+    "longitude": -34.9161612
+  },
+  {
+    "_id": 2,
+    "equipamento": "5942",
+    "tipo": "Lombada",
+    "logradouro": "AV. MAL. MASCARENHAS DE MORAES, EM FRENTE AEROPORTO - SENT. CENTRO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1306469,
+    "longitude": -34.9158856
+  },
+  {
+    "_id": 3,
+    "equipamento": "5943",
+    "tipo": "Lombada",
+    "logradouro": "AV. BOA VIAGEM - TERCEIRO JARDIM",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1078431,
+    "longitude": -34.8881609
+  },
+  {
+    "_id": 4,
+    "equipamento": "5944",
+    "tipo": "Lombada",
+    "logradouro": "DEFRONTE A PCA. GOV. PAULO GUERRA, CABANGA - SENT. PINA",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0801208,
+    "longitude": -34.8921866
+  },
+  {
+    "_id": 5,
+    "equipamento": "5945",
+    "tipo": "Lombada",
+    "logradouro": "APOS PONTE AGAMENON MAGALHAES, CABANGA - SENT. DERBY",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0808198,
+    "longitude": -34.891159
+  },
+  {
+    "_id": 6,
+    "equipamento": "5946",
+    "tipo": "Lombada",
+    "logradouro": "AV. BOA VIAGEM – EM FRENTE PARQUE DONA LINDU",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1410665,
+    "longitude": -34.9032775
+  },
+  {
+    "_id": 7,
+    "equipamento": "5947",
+    "tipo": "Lombada",
+    "logradouro": "AV. BOA VIAGEM – EM FRENTE PARQUE DONA LINDU",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1410665,
+    "longitude": -34.9032775
+  },
+  {
+    "_id": 8,
+    "equipamento": "5948",
+    "tipo": "Lombada",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES – EM FRENTE REITORIA UPE - SENT. OLINDA",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0431659,
+    "longitude": -34.8858642
+  },
+  {
+    "_id": 9,
+    "equipamento": "5949",
+    "tipo": "Lombada",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES – EM FRENTE REITORIA UPE - SENT. OLINDA",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0431659,
+    "longitude": -34.8858642
+  },
+  {
+    "_id": 10,
+    "equipamento": "5950",
+    "tipo": "Lombada",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES – PROX. VIADUTO PRES. MEDICI - SENT. DERBY",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0415844,
+    "longitude": -34.8833148
+  },
+  {
+    "_id": 11,
+    "equipamento": "5951",
+    "tipo": "Lombada",
+    "logradouro": "AV. GENERAL SAN MARTIN, N. 1864, SENT. AV. RECIFE ",
+    "velocidade_via": "40 km/h",
+    "latitude": -8.0674689,
+    "longitude": -34.9278105
+  },
+  {
+    "_id": 12,
+    "equipamento": "5952",
+    "tipo": "Lombada",
+    "logradouro": "AV. AFONSO OLINDENSE, N. 996, SENT. CAXANGA ",
+    "velocidade_via": "40 km/h",
+    "latitude": -8.0395243,
+    "longitude": -34.9576449
+  },
+  {
+    "_id": 13,
+    "equipamento": "5953",
+    "tipo": "Lombada",
+    "logradouro": "AV. MAURICIO DE NASSAU ENTRONCAMENTO 1a. TRV. SANTA LÚCIA, SENT. CENTRO",
+    "velocidade_via": "40 km/h",
+    "latitude": -8.0391921,
+    "longitude": -34.9298387
+  },
+  {
+    "_id": 14,
+    "equipamento": "5954",
+    "tipo": "Lombada",
+    "logradouro": "AV. ALFREDO LISBOA, ENTRE OS N. 33 E 18",
+    "velocidade_via": "30 km/h",
+    "latitude": -8.0637868,
+    "longitude": -34.8716323
+  },
+  {
+    "_id": 15,
+    "equipamento": "5955",
+    "tipo": "Lombada",
+    "logradouro": "RUA ARQ. LUIZ NUNES CRUZAMENTO RUA DEOLINDO TAVARES, SENT. SUBURBIO",
+    "velocidade_via": "40 km/h",
+    "latitude": -8.0874203,
+    "longitude": -34.9099345
+  },
+  {
+    "_id": 16,
+    "equipamento": "5956",
+    "tipo": "Lombada",
+    "logradouro": "RUA PARIS, PRÓXIMO A PARADA DE ÔNIBUS N.020470",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.1029992,
+    "longitude": -34.91313
+  },
+  {
+    "_id": 17,
+    "equipamento": "5957",
+    "tipo": "Lombada",
+    "logradouro": "AV. CONS. AGUIAR, N. 4620",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.127873,
+    "longitude": -34.900242
+  },
+  {
+    "_id": 18,
+    "equipamento": "5958",
+    "tipo": "Lombada",
+    "logradouro": "AV. RUI BARBOSA, N. 1397",
+    "velocidade_via": "60 km/h (40km/h ciclofaixa)",
+    "latitude": -8.0411575,
+    "longitude": -34.9033434
+  },
+  {
+    "_id": 19,
+    "equipamento": "5959",
+    "tipo": "Lombada",
+    "logradouro": "AV. ENG. ANTONIO DE GOES, N. 124",
+    "velocidade_via": "60 km/h (40km/h ciclofaixa)",
+    "latitude": -8.0883266,
+    "longitude": -34.8837708
+  },
+  {
+    "_id": 20,
+    "equipamento": "5960",
+    "tipo": "Lombada",
+    "logradouro": "AV. ENG. JOSÉ ESTELITA - ENTRE PTS. DE ILUM. 19-R e 21-R, SENT. CENTRO",
+    "velocidade_via": "60 km/h (40km/h ciclofaixa)",
+    "latitude": -8.0758569,
+    "longitude": -34.8874512
+  },
+  {
+    "_id": 21,
+    "equipamento": "5961",
+    "tipo": "Lombada",
+    "logradouro": "CAIS SANTA RITA, PROX.  AO N. 675 - SENT. CENTRO",
+    "velocidade_via": "60 km/h (40km/h ciclofaixa)",
+    "latitude": -8.0717339,
+    "longitude": -34.8779064
+  },
+  {
+    "_id": 22,
+    "equipamento": "5962",
+    "tipo": "Lombada",
+    "logradouro": "AV. DOM JOAO VI, EM FRT. AO PT. DE ONIBUS N. 010243, IMBIRIBEIRA",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.1157038,
+    "longitude": -34.904305
+  },
+  {
+    "_id": 23,
+    "equipamento": "5963",
+    "tipo": "Lombada",
+    "logradouro": "AV. REPUBLICA DO LIBANO, N. 115 - PINA - SENT. SUBURBIO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0873199,
+    "longitude": -34.8912547
+  },
+  {
+    "_id": 24,
+    "equipamento": "5964",
+    "tipo": "Lombada",
+    "logradouro": "AV. CELSO FURTADO KM 1,5 - SENT. CENTRO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0989628,
+    "longitude": -34.8902929
+  },
+  {
+    "_id": 25,
+    "equipamento": "5965",
+    "tipo": "Lombada",
+    "logradouro": "AV. CELSO FURTADO KM 2,4 - SENT. SUBURBIO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1053608,
+    "longitude": -34.8918783
+  },
+  {
+    "_id": 26,
+    "equipamento": "5966",
+    "tipo": "Lombada",
+    "logradouro": "AV. CELSO FURTADO KM 2,5 - SENT. CENTRO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1057941,
+    "longitude": -34.8920917
+  },
+  {
+    "_id": 27,
+    "equipamento": "5967",
+    "tipo": "Lombada",
+    "logradouro": "AV. SATURNINO DE BRITO - PROX. A COMPESA, SENT. SUBURBIO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0795908,
+    "longitude": -34.8927989
+  },
+  {
+    "_id": 28,
+    "equipamento": "5968",
+    "tipo": "Lombada",
+    "logradouro": "AV. DOM JOAO VI, ENTRE OS N. 777 E 835 - SENT. CENTRO",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.116378,
+    "longitude": -34.904458
+  },
+  {
+    "_id": 29,
+    "equipamento": "5969",
+    "tipo": "Lombada",
+    "logradouro": "AV. ENG. ABDIAS DE CARVALHO, ENTRE OS N. 1785 E 1745 - SENT. CENTRO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.062406,
+    "longitude": -34.917518
+  },
+  {
+    "_id": 30,
+    "equipamento": "5970",
+    "tipo": "Lombada",
+    "logradouro": "AV. BEBERIBE, 2960 - SENT. SUBÚRBIO",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.012909,
+    "longitude": -34.88938
+  },
+  {
+    "_id": 31,
+    "equipamento": "5971",
+    "tipo": "Lombada",
+    "logradouro": "AV. BEBERIBE, 3101 - SENT. CENTRO",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.011664,
+    "longitude": -34.889419
+  },
+  {
+    "_id": 32,
+    "equipamento": "5972",
+    "tipo": "Lombada",
+    "logradouro": "RUA CONEGO BARATA, 55 - SENTIDO TORRE",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.032786,
+    "longitude": -34.902984
+  },
+  {
+    "_id": 33,
+    "equipamento": "FS002",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA MADRE DE DEUS, SEMAFORO 020.",
+    "velocidade_via": "30 Km/h",
+    "latitude": -8.0634002,
+    "longitude": -34.8736694
+  },
+  {
+    "_id": 34,
+    "equipamento": "FS003",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. MARQUES DE OLINDA, SEMAFORO 020.",
+    "velocidade_via": "30 Km/h",
+    "latitude": -8.0635787,
+    "longitude": -34.873533
+  },
+  {
+    "_id": 35,
+    "equipamento": "FS004",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. HERCULANO BANDEIRA, SEMAFORO 137.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0887916,
+    "longitude": -34.8852251
+  },
+  {
+    "_id": 36,
+    "equipamento": "FS005",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. DOMINGOS FERREIRA, SEMAFORO 338.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1214306,
+    "longitude": -34.8990221
+  },
+  {
+    "_id": 37,
+    "equipamento": "FS006",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. DOMINGOS FERREIRA, SEMAFORO 297.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1052672,
+    "longitude": -34.889605
+  },
+  {
+    "_id": 38,
+    "equipamento": "FS007",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. ABDIAS DE CARVALHO, SEMAFORO 271.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.063993,
+    "longitude": -34.9357505
+  },
+  {
+    "_id": 39,
+    "equipamento": "FS008",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. ABDIAS DE CARVALHO, SEMAFORO 272.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0641421,
+    "longitude": -34.9358171
+  },
+  {
+    "_id": 40,
+    "equipamento": "FS009",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. CDE. DA BOA VISTA,  SEMAFORO 486.",
+    "velocidade_via": "40 Km/h",
+    "latitude": -8.061165,
+    "longitude": -34.8832943
+  },
+  {
+    "_id": 41,
+    "equipamento": "FS010",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES, SEMAFORO 069.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0626244,
+    "longitude": -34.8973606
+  },
+  {
+    "_id": 42,
+    "equipamento": "FS011",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA PROF. ARNALDO CARNEIRO LEAO, SEMAFORO 544.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1151484,
+    "longitude": -34.9006181
+  },
+  {
+    "_id": 43,
+    "equipamento": "FS012",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES, SEMAFORO 173.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0516928,
+    "longitude": -34.8950315
+  },
+  {
+    "_id": 44,
+    "equipamento": "FS014",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. BOA VIAGEM,  SEMAFORO 104.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0919008,
+    "longitude": -34.8820881
+  },
+  {
+    "_id": 45,
+    "equipamento": "FS015",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. MARECHAL MASCARENHAS DE MORAES, SEMAFORO 530/531.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1273728,
+    "longitude": -34.9155178
+  },
+  {
+    "_id": 46,
+    "equipamento": "FS016",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. RECIFE, SEMAFORO 336.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1003544,
+    "longitude": -34.9282125
+  },
+  {
+    "_id": 47,
+    "equipamento": "FS017",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. RECIFE, SEMAFORO 617.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.100547,
+    "longitude": -34.9280824
+  },
+  {
+    "_id": 48,
+    "equipamento": "FS018",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. DEZESSETE DE AGOSTO, SEMAFORO 370.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0277621,
+    "longitude": -34.928001
+  },
+  {
+    "_id": 49,
+    "equipamento": "FS019",
+    "tipo": "Fotossensor",
+    "logradouro": "PONTE DELMIRO GOUVEIA, SEMAFORO 075.",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.05671,
+    "longitude": -34.89797
+  },
+  {
+    "_id": 50,
+    "equipamento": "FS020",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. BEBERIBE, SEMAFORO 131.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0278685,
+    "longitude": -34.8929091
+  },
+  {
+    "_id": 51,
+    "equipamento": "FS021",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. ABDIAS DE CARVALHO, SEMAFORO 328.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.06242,
+    "longitude": -34.91688
+  },
+  {
+    "_id": 52,
+    "equipamento": "FS022",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA REAL DA TORRE, SEMAFORO 237.",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.05538,
+    "longitude": -34.90906
+  },
+  {
+    "_id": 53,
+    "equipamento": "FS023",
+    "tipo": "Fotossensor",
+    "logradouro": "AV.NORTE MIGUEL ARRAES DE ALENCAR, SEMAFORO 424",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0182744,
+    "longitude": -34.9283043
+  },
+  {
+    "_id": 54,
+    "equipamento": "FS024",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA GUILHERME PINTO, SEMAFORO 432.",
+    "velocidade_via": "40 Km/h",
+    "latitude": -8.05216,
+    "longitude": -34.90217
+  },
+  {
+    "_id": 55,
+    "equipamento": "FS025",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. DESEMBARGADOR JOSÉ NEVES, SEMAFORO 580",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.1215132,
+    "longitude": -34.9093425
+  },
+  {
+    "_id": 56,
+    "equipamento": "FS026",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. DESEMBARGADOR JOSÉ NEVES, SEMAFORO 400",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.1214297,
+    "longitude": -34.9098383
+  },
+  {
+    "_id": 57,
+    "equipamento": "FS027",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA VISCONDE DE JEQUITINHONHA,SEMAFORO 158",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1362834,
+    "longitude": -34.9035808
+  },
+  {
+    "_id": 58,
+    "equipamento": "FS028",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA VISCONDE DE JEQUITINHONHA,SEMAFORO 158",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1362834,
+    "longitude": -34.9035808
+  },
+  {
+    "_id": 59,
+    "equipamento": "FS029",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA FALCAO DE LACERDA SEMAFORO 285",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.0920388,
+    "longitude": -34.9614941
+  },
+  {
+    "_id": 60,
+    "equipamento": "FS030",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. LIBERDADE, SEMAFORO 440",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.0811109,
+    "longitude": -34.9683544
+  },
+  {
+    "_id": 61,
+    "equipamento": "FS033",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. DR. JOSE RUFINO, SEMAFORO 082.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.08463,
+    "longitude": -34.92803
+  },
+  {
+    "_id": 62,
+    "equipamento": "FS037",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES, SEMAFORO 069",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.06268,
+    "longitude": -34.89733
+  },
+  {
+    "_id": 63,
+    "equipamento": "5941",
+    "tipo": "Lombada",
+    "logradouro": "AV. MAL. MASCARENHAS DE MORAES, EM FRENTE AEROPORTO - SENT. PRAZERES",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1309702,
+    "longitude": -34.9161612
+  },
+  {
+    "_id": 64,
+    "equipamento": "5942",
+    "tipo": "Lombada",
+    "logradouro": "AV. MAL. MASCARENHAS DE MORAES, EM FRENTE AEROPORTO - SENT. CENTRO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1306469,
+    "longitude": -34.9158856
+  },
+  {
+    "_id": 65,
+    "equipamento": "5943",
+    "tipo": "Lombada",
+    "logradouro": "AV. BOA VIAGEM - TERCEIRO JARDIM",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1078431,
+    "longitude": -34.8881609
+  },
+  {
+    "_id": 66,
+    "equipamento": "5944",
+    "tipo": "Lombada",
+    "logradouro": "DEFRONTE A PCA. GOV. PAULO GUERRA, CABANGA - SENT. PINA",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0801208,
+    "longitude": -34.8921866
+  },
+  {
+    "_id": 67,
+    "equipamento": "5945",
+    "tipo": "Lombada",
+    "logradouro": "APOS PONTE AGAMENON MAGALHAES, CABANGA - SENT. DERBY",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0808198,
+    "longitude": -34.891159
+  },
+  {
+    "_id": 68,
+    "equipamento": "5946",
+    "tipo": "Lombada",
+    "logradouro": "AV. BOA VIAGEM – EM FRENTE PARQUE DONA LINDU",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1410665,
+    "longitude": -34.9032775
+  },
+  {
+    "_id": 69,
+    "equipamento": "5947",
+    "tipo": "Lombada",
+    "logradouro": "AV. BOA VIAGEM – EM FRENTE PARQUE DONA LINDU",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1410665,
+    "longitude": -34.9032775
+  },
+  {
+    "_id": 70,
+    "equipamento": "5948",
+    "tipo": "Lombada",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES – EM FRENTE REITORIA UPE - SENT. OLINDA",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0431659,
+    "longitude": -34.8858642
+  },
+  {
+    "_id": 71,
+    "equipamento": "5949",
+    "tipo": "Lombada",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES – EM FRENTE REITORIA UPE - SENT. OLINDA",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0431659,
+    "longitude": -34.8858642
+  },
+  {
+    "_id": 72,
+    "equipamento": "5950",
+    "tipo": "Lombada",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES – PROX. VIADUTO PRES. MEDICI - SENT. DERBY",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0415844,
+    "longitude": -34.8833148
+  },
+  {
+    "_id": 73,
+    "equipamento": "5951",
+    "tipo": "Lombada",
+    "logradouro": "AV. GENERAL SAN MARTIN, N. 1864, SENT. AV. RECIFE ",
+    "velocidade_via": "40 km/h",
+    "latitude": -8.0674689,
+    "longitude": -34.9278105
+  },
+  {
+    "_id": 74,
+    "equipamento": "5952",
+    "tipo": "Lombada",
+    "logradouro": "AV. AFONSO OLINDENSE, N. 996, SENT. CAXANGA ",
+    "velocidade_via": "40 km/h",
+    "latitude": -8.0395243,
+    "longitude": -34.9576449
+  },
+  {
+    "_id": 75,
+    "equipamento": "5953",
+    "tipo": "Lombada",
+    "logradouro": "AV. MAURICIO DE NASSAU ENTRONCAMENTO 1a. TRV. SANTA LÚCIA, SENT. CENTRO",
+    "velocidade_via": "40 km/h",
+    "latitude": -8.0391921,
+    "longitude": -34.9298387
+  },
+  {
+    "_id": 76,
+    "equipamento": "5954",
+    "tipo": "Lombada",
+    "logradouro": "AV. ALFREDO LISBOA, ENTRE OS N. 33 E 18",
+    "velocidade_via": "30 km/h",
+    "latitude": -8.0637868,
+    "longitude": -34.8716323
+  },
+  {
+    "_id": 77,
+    "equipamento": "5955",
+    "tipo": "Lombada",
+    "logradouro": "RUA ARQ. LUIZ NUNES CRUZAMENTO RUA DEOLINDO TAVARES, SENT. SUBURBIO",
+    "velocidade_via": "40 km/h",
+    "latitude": -8.0874203,
+    "longitude": -34.9099345
+  },
+  {
+    "_id": 78,
+    "equipamento": "5956",
+    "tipo": "Lombada",
+    "logradouro": "RUA PARIS, PRÓXIMO A PARADA DE ÔNIBUS N.020470",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.1029992,
+    "longitude": -34.91313
+  },
+  {
+    "_id": 79,
+    "equipamento": "5957",
+    "tipo": "Lombada",
+    "logradouro": "AV. CONS. AGUIAR, N. 4620",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.127873,
+    "longitude": -34.900242
+  },
+  {
+    "_id": 80,
+    "equipamento": "5958",
+    "tipo": "Lombada",
+    "logradouro": "AV. RUI BARBOSA, N. 1397",
+    "velocidade_via": "60 km/h (40km/h ciclofaixa)",
+    "latitude": -8.0411575,
+    "longitude": -34.9033434
+  },
+  {
+    "_id": 81,
+    "equipamento": "5959",
+    "tipo": "Lombada",
+    "logradouro": "AV. ENG. ANTONIO DE GOES, N. 124",
+    "velocidade_via": "60 km/h (40km/h ciclofaixa)",
+    "latitude": -8.0883266,
+    "longitude": -34.8837708
+  },
+  {
+    "_id": 82,
+    "equipamento": "5960",
+    "tipo": "Lombada",
+    "logradouro": "AV. ENG. JOSÉ ESTELITA - ENTRE PTS. DE ILUM. 19-R e 21-R, SENT. CENTRO",
+    "velocidade_via": "60 km/h (40km/h ciclofaixa)",
+    "latitude": -8.0758569,
+    "longitude": -34.8874512
+  },
+  {
+    "_id": 83,
+    "equipamento": "5961",
+    "tipo": "Lombada",
+    "logradouro": "CAIS SANTA RITA, PROX.  AO N. 675 - SENT. CENTRO",
+    "velocidade_via": "60 km/h (40km/h ciclofaixa)",
+    "latitude": -8.0717339,
+    "longitude": -34.8779064
+  },
+  {
+    "_id": 84,
+    "equipamento": "5962",
+    "tipo": "Lombada",
+    "logradouro": "AV. DOM JOAO VI, EM FRT. AO PT. DE ONIBUS N. 010243, IMBIRIBEIRA",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.1157038,
+    "longitude": -34.904305
+  },
+  {
+    "_id": 85,
+    "equipamento": "5963",
+    "tipo": "Lombada",
+    "logradouro": "AV. REPUBLICA DO LIBANO, N. 115 - PINA - SENT. SUBURBIO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0873199,
+    "longitude": -34.8912547
+  },
+  {
+    "_id": 86,
+    "equipamento": "5964",
+    "tipo": "Lombada",
+    "logradouro": "AV. CELSO FURTADO KM 1,5 - SENT. CENTRO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0989628,
+    "longitude": -34.8902929
+  },
+  {
+    "_id": 87,
+    "equipamento": "5965",
+    "tipo": "Lombada",
+    "logradouro": "AV. CELSO FURTADO KM 2,4 - SENT. SUBURBIO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1053608,
+    "longitude": -34.8918783
+  },
+  {
+    "_id": 88,
+    "equipamento": "5966",
+    "tipo": "Lombada",
+    "logradouro": "AV. CELSO FURTADO KM 2,5 - SENT. CENTRO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.1057941,
+    "longitude": -34.8920917
+  },
+  {
+    "_id": 89,
+    "equipamento": "5967",
+    "tipo": "Lombada",
+    "logradouro": "AV. SATURNINO DE BRITO - PROX. A COMPESA, SENT. SUBURBIO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.0795908,
+    "longitude": -34.8927989
+  },
+  {
+    "_id": 90,
+    "equipamento": "5968",
+    "tipo": "Lombada",
+    "logradouro": "AV. DOM JOAO VI, ENTRE OS N. 777 E 835 - SENT. CENTRO",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.116378,
+    "longitude": -34.904458
+  },
+  {
+    "_id": 91,
+    "equipamento": "5969",
+    "tipo": "Lombada",
+    "logradouro": "AV. ENG. ABDIAS DE CARVALHO, ENTRE OS N. 1785 E 1745 - SENT. CENTRO",
+    "velocidade_via": "60 km/h",
+    "latitude": -8.062406,
+    "longitude": -34.917518
+  },
+  {
+    "_id": 92,
+    "equipamento": "5970",
+    "tipo": "Lombada",
+    "logradouro": "AV. BEBERIBE, 2960 - SENT. SUBÚRBIO",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.012909,
+    "longitude": -34.88938
+  },
+  {
+    "_id": 93,
+    "equipamento": "5971",
+    "tipo": "Lombada",
+    "logradouro": "AV. BEBERIBE, 3101 - SENT. CENTRO",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.011664,
+    "longitude": -34.889419
+  },
+  {
+    "_id": 94,
+    "equipamento": "5972",
+    "tipo": "Lombada",
+    "logradouro": "RUA CONEGO BARATA, 55 - SENTIDO TORRE",
+    "velocidade_via": "50 km/h",
+    "latitude": -8.032786,
+    "longitude": -34.902984
+  },
+  {
+    "_id": 95,
+    "equipamento": "FS002",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA MADRE DE DEUS, SEMAFORO 020.",
+    "velocidade_via": "30 Km/h",
+    "latitude": -8.0634002,
+    "longitude": -34.8736694
+  },
+  {
+    "_id": 96,
+    "equipamento": "FS003",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. MARQUES DE OLINDA, SEMAFORO 020.",
+    "velocidade_via": "30 Km/h",
+    "latitude": -8.0635787,
+    "longitude": -34.873533
+  },
+  {
+    "_id": 97,
+    "equipamento": "FS004",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. HERCULANO BANDEIRA, SEMAFORO 137.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0887916,
+    "longitude": -34.8852251
+  },
+  {
+    "_id": 98,
+    "equipamento": "FS005",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. DOMINGOS FERREIRA, SEMAFORO 338.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1214306,
+    "longitude": -34.8990221
+  },
+  {
+    "_id": 99,
+    "equipamento": "FS006",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. DOMINGOS FERREIRA, SEMAFORO 297.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1052672,
+    "longitude": -34.889605
+  },
+  {
+    "_id": 100,
+    "equipamento": "FS007",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. ABDIAS DE CARVALHO, SEMAFORO 271.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.063993,
+    "longitude": -34.9357505
+  },
+  {
+    "_id": 101,
+    "equipamento": "FS008",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. ABDIAS DE CARVALHO, SEMAFORO 272.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0641421,
+    "longitude": -34.9358171
+  },
+  {
+    "_id": 102,
+    "equipamento": "FS009",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. CDE. DA BOA VISTA,  SEMAFORO 486.",
+    "velocidade_via": "40 Km/h",
+    "latitude": -8.061165,
+    "longitude": -34.8832943
+  },
+  {
+    "_id": 103,
+    "equipamento": "FS010",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES, SEMAFORO 069.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0626244,
+    "longitude": -34.8973606
+  },
+  {
+    "_id": 104,
+    "equipamento": "FS011",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA PROF. ARNALDO CARNEIRO LEAO, SEMAFORO 544.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1151484,
+    "longitude": -34.9006181
+  },
+  {
+    "_id": 105,
+    "equipamento": "FS012",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES, SEMAFORO 173.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0516928,
+    "longitude": -34.8950315
+  },
+  {
+    "_id": 106,
+    "equipamento": "FS014",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. BOA VIAGEM,  SEMAFORO 104.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0919008,
+    "longitude": -34.8820881
+  },
+  {
+    "_id": 107,
+    "equipamento": "FS015",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. MARECHAL MASCARENHAS DE MORAES, SEMAFORO 530/531.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1273728,
+    "longitude": -34.9155178
+  },
+  {
+    "_id": 108,
+    "equipamento": "FS016",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. RECIFE, SEMAFORO 336.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1003544,
+    "longitude": -34.9282125
+  },
+  {
+    "_id": 109,
+    "equipamento": "FS017",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. RECIFE, SEMAFORO 617.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.100547,
+    "longitude": -34.9280824
+  },
+  {
+    "_id": 110,
+    "equipamento": "FS018",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. DEZESSETE DE AGOSTO, SEMAFORO 370.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0277621,
+    "longitude": -34.928001
+  },
+  {
+    "_id": 111,
+    "equipamento": "FS019",
+    "tipo": "Fotossensor",
+    "logradouro": "PONTE DELMIRO GOUVEIA, SEMAFORO 075.",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.05671,
+    "longitude": -34.89797
+  },
+  {
+    "_id": 112,
+    "equipamento": "FS020",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. BEBERIBE, SEMAFORO 131.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0278685,
+    "longitude": -34.8929091
+  },
+  {
+    "_id": 113,
+    "equipamento": "FS021",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. ENG. ABDIAS DE CARVALHO, SEMAFORO 328.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.06242,
+    "longitude": -34.91688
+  },
+  {
+    "_id": 114,
+    "equipamento": "FS022",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA REAL DA TORRE, SEMAFORO 237.",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.05538,
+    "longitude": -34.90906
+  },
+  {
+    "_id": 115,
+    "equipamento": "FS023",
+    "tipo": "Fotossensor",
+    "logradouro": "AV.NORTE MIGUEL ARRAES DE ALENCAR, SEMAFORO 424",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.0182744,
+    "longitude": -34.9283043
+  },
+  {
+    "_id": 116,
+    "equipamento": "FS024",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA GUILHERME PINTO, SEMAFORO 432.",
+    "velocidade_via": "40 Km/h",
+    "latitude": -8.05216,
+    "longitude": -34.90217
+  },
+  {
+    "_id": 117,
+    "equipamento": "FS025",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. DESEMBARGADOR JOSÉ NEVES, SEMAFORO 580",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.1215132,
+    "longitude": -34.9093425
+  },
+  {
+    "_id": 118,
+    "equipamento": "FS026",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. DESEMBARGADOR JOSÉ NEVES, SEMAFORO 400",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.1214297,
+    "longitude": -34.9098383
+  },
+  {
+    "_id": 119,
+    "equipamento": "FS027",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA VISCONDE DE JEQUITINHONHA,SEMAFORO 158",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1362834,
+    "longitude": -34.9035808
+  },
+  {
+    "_id": 120,
+    "equipamento": "FS028",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA VISCONDE DE JEQUITINHONHA,SEMAFORO 158",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.1362834,
+    "longitude": -34.9035808
+  },
+  {
+    "_id": 121,
+    "equipamento": "FS029",
+    "tipo": "Fotossensor",
+    "logradouro": "RUA FALCAO DE LACERDA SEMAFORO 285",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.0920388,
+    "longitude": -34.9614941
+  },
+  {
+    "_id": 122,
+    "equipamento": "FS030",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. LIBERDADE, SEMAFORO 440",
+    "velocidade_via": "50 Km/h",
+    "latitude": -8.0811109,
+    "longitude": -34.9683544
+  },
+  {
+    "_id": 123,
+    "equipamento": "FS033",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. DR. JOSE RUFINO, SEMAFORO 082.",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.08463,
+    "longitude": -34.92803
+  },
+  {
+    "_id": 124,
+    "equipamento": "FS037",
+    "tipo": "Fotossensor",
+    "logradouro": "AV. GOV. AGAMENON MAGALHAES, SEMAFORO 069",
+    "velocidade_via": "60 Km/h",
+    "latitude": -8.06268,
+    "longitude": -34.89733
+  }
+]
