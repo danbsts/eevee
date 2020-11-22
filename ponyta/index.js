@@ -1,5 +1,6 @@
 const bodyParser = require("body-parser");
 const express = require("express");
+const cors = require('cors');
 
 const { loadSpeedTrapsData } = require("./speed_traps");
 const sites = require("./sites.json");
@@ -8,6 +9,7 @@ const EXPRESS_PORT = 10077;
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 function sendResponse(res, body) {
     res.setHeader("content-type", "application/json");

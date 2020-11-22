@@ -1,54 +1,49 @@
-const { webSocket } = require('rxjs/webSocket');
-(global).WebSocket = require('ws');
-var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-const subject = webSocket("ws://127.0.0.1:10003/traficData");
-const ponytaUrl = "http://127.0.0.1:10077"
+import api from "./axios";
+const { webSocket } = require("rxjs/webSocket");
+// global.WebSocket = require("websocket")
+console.log(process.env.CHARIZARD)
+const subject = webSocket(`ws://charizard:10003/traficData`);
+// const webSocket = new WebSocket(`ws://${charizardUrl}:10003/traficData`);
 
 var traficData = [];
 var trapData = [];
 var siteData = [];
 
-getSiteList();
-getTrapList(siteData[0].id);
+// getSiteList();
+// getTrapList(siteData[0].id);
 
 subject.subscribe(
-  batchTraficData => {
-    batchTraficData.trafic.forEach(element => {
+  (batchTraficData) => {
+    batchTraficData.trafic.forEach((element) => {
       traficData.push(element);
     });
-    console.log('Data received, new trafic size: ' + traficData.length);
+    console.log("Data received, new trafic size: " + traficData.length);
   },
-  err => console.log(err)
+  (err) => console.log(err)
 );
 
-function getSiteList(){
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open( "GET", ponytaUrl + `/sites/`, false );
-  xmlHttp.send( null );
-  var jsonResult = JSON.parse(xmlHttp.responseText);
-  console.log("Site list: " + JSON.stringify(jsonResult, null, 2));
-  siteData = jsonResult;
+async function getSiteList() {
+  return api.get("/sites").then((res) => {
+    console.log(res);
+  });
 }
 
-function getTrapList(siteId){
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open( "GET", ponytaUrl + `/sites/${siteId}/`, false );
-  xmlHttp.send( null );
-  var jsonResult = JSON.parse(xmlHttp.responseText);
-  console.log("Trap list: " + JSON.stringify(jsonResult, null, 2));
-  sentCharizardIdList(jsonResult);
-  trapData = jsonResult;
-  return jsonResult;
+function getTrapList(siteId) {
+  return api.get(`/sites/${siteId}`).then((res) => {
+    console.log(res);
+  });
 }
 
-function sentCharizardIdList(trapData){
-  var idList = [];
-  for (trap in trapData){
-    idList.push(trap.id);
-  }
+function sentCharizardIdList(trapData) {
+  // var idList = [];
+  // for (trap in trapData) {
+  //   idList.push(trap.id);
+  // }
   /*
   subject.send({
     ids: idLisst
   }); 
   */
 }
+
+export { getSiteList, getTrapList };

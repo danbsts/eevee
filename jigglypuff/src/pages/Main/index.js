@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Map, Text, Card, Clock, FlexLayout } from "../../components";
+import { getSiteList, getTrapList } from '../../service/main';
 
 function Main() {
+  useEffect(() => {
+    getSiteList();
+  }, []);
+
   return (
     <FlexLayout justify="around" style={{padding: '30px'}}>
       <div>

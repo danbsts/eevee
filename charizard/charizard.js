@@ -8,7 +8,7 @@ const grpcObject = grpc.loadPackageDefinition(packageDef);
 var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({port: 10003, path: '/traficData'});
 const eeveePackage = grpcObject.eevee;
-const host = process.env.GYARADOS? process.env.GYARADOS : "127.0.0.1";
+const host = process.env.GYARADOS? process.env.GYARADOS : "0.0.0.0";
 
 const client = new eeveePackage.eeveeService(`${host}:10130`, grpc.credentials.createInsecure());
 var toBeSentTraficData = [];
