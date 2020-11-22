@@ -37,3 +37,16 @@ services:
     depends_on:
       - charizard
       - ponyta
+  metapod:
+    container_name: metapod
+    ports:
+      - 8091:8091
+      - 8092:8092
+      - 8093:8093
+      - 8094:8094
+      - 11210:11210
+    volumes:
+    - metapod:/opt/couchbase/var
+volumes:
+  metapod:
+
