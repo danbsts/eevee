@@ -4,8 +4,6 @@ services:
     container_name: gyarados
     build:
       context: ./gyarados
-    ports:
-      - 10130:10130
     restart: always
   charizard:
     container_name: charizard
@@ -39,4 +37,3 @@ services:
     depends_on:
       - charizard
       - ponyta
-

@@ -1,9 +1,6 @@
 import api from "./axios";
-const { webSocket } = require("rxjs/webSocket");
-// global.WebSocket = require("websocket")
-console.log(process.env.CHARIZARD)
-const subject = webSocket(`ws://0.0.0.0:10003/traficData`);
-// const webSocket = new WebSocket(`ws://${charizardUrl}:10003/traficData`);
+import { webSocket } from "rxjs/webSocket";
+const subject = new webSocket(`ws://0.0.0.0:10003/traficData`);
 
 var traficData = [];
 var siteData = [];
