@@ -3,13 +3,14 @@ const protoLoader = require("@grpc/proto-loader");
 const { Observable } = require('rxjs');
 const { filter } = require('rxjs/operators');
 const { read } = require('fs');
-const packageDef = protoLoader.loadSync("../protocol/eevee.proto", {});
+const packageDef = protoLoader.loadSync("./protocol/eevee.proto", {});
 const grpcObject = grpc.loadPackageDefinition(packageDef);
 var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({port: 10003, path: '/traficData'});
 const eeveePackage = grpcObject.eevee;
+const host = process.env.GYARADOS? process.env.GYARADOS : "127.0.0.1";
 
-const client = new eeveePackage.eeveeService("127.0.0.1:40000", grpc.credentials.createInsecure());
+const client = new eeveePackage.eeveeService(`${host}:10130`, grpc.credentials.createInsecure());
 var toBeSentTraficData = [];
 var requiredIds = [5962];
 // for(var i = 0; i < 200; i++){
@@ -44,6 +45,7 @@ function readTraficData() {
 
   return new Observable(subscriber => {
     channel.on("data", batchTraficData => {
+      console.log('Oie! :D')
       const reads = processTrafic(batchTraficData);
       Object.values(reads).forEach(data => subscriber.next(data));
       lastReceivedTraficData = batchTraficData;

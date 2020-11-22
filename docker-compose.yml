@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  gyarados:
+    container_name: gyarados
+    build:
+      context: ./gyarados
+    ports:
+      - 10130:10130
+    restart: always
+  charizard:
+    container_name: charizard
+    build:
+      context: ./charizard
+    env_file:
+      - charizard/dev.env
+    ports:
+      - 10003:10003
+    restart: always
+    depends_on:
+      - gyarados
+  ponyta:
+    container_name: ponyta
+    build:
+      context: ./ponyta
+    ports:
+      - 10077:10077
+    restart: always
+  jigglypuff:
+    container_name: jigglypuff
+    build:
+      context: ./jigglypuff
+    stdin_open: true
+    ports:
+      - 80:3000
+    volumes:
+      - ./jigglypuff/src:/jigglypuff/src
+      - ./jigglypuff/public:/jigglypuff/public
+    restart: always
+    depends_on:
+      - charizard
+      - ponyta
+

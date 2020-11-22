@@ -37,7 +37,7 @@ function getTrapList(siteId){
   var jsonResult = JSON.parse(xmlHttp.responseText);
   console.log("Trap list: " + JSON.stringify(jsonResult, null, 2));
   sentCharizardIdList(jsonResult);
-  siteData = jsonResult;
+  trapData = jsonResult;
   return jsonResult;
 }
 

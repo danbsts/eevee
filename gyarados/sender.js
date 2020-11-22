@@ -1,12 +1,12 @@
 let grpc = require("grpc");
 var protoLoader = require("@grpc/proto-loader");
 
-const packageDef = protoLoader.loadSync('../protocol/eevee.proto',{});
+const packageDef = protoLoader.loadSync('./protocol/eevee.proto',{});
 const grpcObject = grpc.loadPackageDefinition(packageDef);
 const senderPackage = grpcObject.eevee;
 
 const server = new grpc.Server();
-server.bind("0.0.0.0:40000", grpc.ServerCredentials.createInsecure());
+server.bind("0.0.0.0:10130", grpc.ServerCredentials.createInsecure());
 
 server.addService(senderPackage.eeveeService.service,
     {
