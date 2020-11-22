@@ -17,8 +17,16 @@ const Bold = styled.div`
   font-weight: 700;
 `;
 
-const Paragraph = styled.div`
+const Label = styled.div`
   font-size: 16px;
+`;
+
+const Default = styled.div`
+  font-size: 14px;
+`;
+
+const Subtitle = styled.div`
+  font-size: 12px;
 `;
 
 function Text({ holder, text, style }) {
@@ -31,7 +39,13 @@ function Text({ holder, text, style }) {
   if(holder === 'bold') {
     return <Bold style={style}>{text}</Bold>;
   }
-  return <Paragraph style={style}>{text}</Paragraph>;
+  if(holder === 'subtitle') {
+    return <Subtitle style={style}>{text}</Subtitle>;
+  }
+  if(holder == 'label') {
+    return <Label style={style}>{text}</Label>;
+  }
+  return <Default style={style}>{text}</Default>;
 }
 
 export default Text;

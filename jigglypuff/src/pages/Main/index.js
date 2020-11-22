@@ -30,6 +30,7 @@ function Main() {
             <FlexLayout>
               <Text text={53} holder="bold" style={{ fontSize: "24px" }} />
               <Text
+                holder="label"
                 text="&nbsp; infrações cometidas"
                 style={{ alignSelf: "flex-end" }}
               />
@@ -37,7 +38,8 @@ function Main() {
             <FlexLayout style={{ padding: "10px 0 0" }}>
               <Text text={219} holder="bold" style={{ fontSize: "24px" }} />
               <Text
-                text="&nbsp; infrações cometidas"
+                holder="label"
+                text="&nbsp; veículos contabilizados"
                 style={{ alignSelf: "flex-end" }}
               />
             </FlexLayout>

@@ -1,5 +1,6 @@
 import React from "react";
-import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
+import TrapPopup from "./TrapPopup";
 
 function Map() {
   return (
@@ -12,11 +13,7 @@ function Map() {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[-8.06312865288916, -34.871122349012225]}>
-        <Popup>
-          Aqui e o Marco Zero carai. Oxe!
-        </Popup>
-      </Marker>
+      <TrapPopup />
     </MapContainer>
   );
 }

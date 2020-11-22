@@ -1,5 +1,5 @@
 import Header from "./Header";
-import Map from "./Map";
+import Map from "./Map/Map";
 import Text from "./Text";
 import Card from "./Card";
 import Clock from "./Clock";
