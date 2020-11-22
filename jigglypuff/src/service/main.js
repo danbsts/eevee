@@ -5,7 +5,7 @@ const subject = new webSocket(`ws://0.0.0.0:10003/traficData`);
 var traficData = [];
 var siteData = [];
 var trapData = [];
-getSiteList().then(result => {
+getSiteList().then((result) => {
   siteData = result;
   trapData = getTrapList(siteData[0].id);
 });
@@ -13,6 +13,7 @@ getSiteList().then(result => {
 subject.subscribe(
   (batchTraficData) => {
     batchTraficData.trafic.forEach((element) => {
+      console.log(element);
       traficData.push(element);
     });
     console.log("Data received, new trafic size: " + traficData.length);
@@ -32,16 +33,16 @@ function getTrapList(siteId) {
     sendCharizardIdList(res.data);
   });
 }
- 
+
 function sendCharizardIdList(trapData) {
   var idList = [];
   for (var trap in trapData) {
-   idList.push(trapData[trap]._id);
+    idList.push(trapData[trap]._id);
   }
   console.log("Sending updated id list");
   subject.next({
-    ids: idList
-  }); 
+    ids: idList,
+  });
 }
 
 export { getSiteList, getTrapList };
