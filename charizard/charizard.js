@@ -1,3 +1,4 @@
+const ponyta = require("./axios.js");
 const grpc = require('grpc');
 const protoLoader = require("@grpc/proto-loader");
 const { Observable } = require('rxjs');
@@ -47,6 +48,7 @@ function readTraficData() {
     channel.on("data", batchTraficData => {
       console.log('Data received from gyarados')
       const reads = processTrafic(batchTraficData);
+      sendCompleteData(batchTraficData);
       Object.values(reads).forEach(data => subscriber.next(data));
       lastReceivedTraficData = batchTraficData;
     });
@@ -69,6 +71,17 @@ wss.on('connection', function(ws) {
     }
   },1000);
 });
+
+async function sendCompleteData(batchTraficData) {
+  if(batchTraficData.trafic.length==0) {
+    return;
+  }
+  return ponyta.post("/records", {
+    data: processTrafic(batchTraficData)
+  }).then((res) => {
+    console.log(res);
+  });
+}
 
 function sendDataToUi(ws, batchTraficData) {
   ws.send(JSON.stringify({
