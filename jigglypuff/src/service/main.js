@@ -2,15 +2,16 @@ import api from "./axios";
 const { webSocket } = require("rxjs/webSocket");
 // global.WebSocket = require("websocket")
 console.log(process.env.CHARIZARD)
-const subject = webSocket(`ws://charizard:10003/traficData`);
+const subject = webSocket(`ws://0.0.0.0:10003/traficData`);
 // const webSocket = new WebSocket(`ws://${charizardUrl}:10003/traficData`);
 
 var traficData = [];
-var trapData = [];
 var siteData = [];
-
-// getSiteList();
-// getTrapList(siteData[0].id);
+var trapData = [];
+getSiteList().then(result => {
+  siteData = result;
+  trapData = getTrapList(siteData[0].id);
+});
 
 subject.subscribe(
   (batchTraficData) => {
@@ -24,26 +25,26 @@ subject.subscribe(
 
 async function getSiteList() {
   return api.get("/sites").then((res) => {
-    console.log(res);
+    console.log(res.data);
+    return res.data;
   });
 }
 
 function getTrapList(siteId) {
   return api.get(`/sites/${siteId}`).then((res) => {
-    console.log(res);
+    sendCharizardIdList(res.data);
   });
 }
-
-function sentCharizardIdList(trapData) {
-  // var idList = [];
-  // for (trap in trapData) {
-  //   idList.push(trap.id);
-  // }
-  /*
-  subject.send({
-    ids: idLisst
+ 
+function sendCharizardIdList(trapData) {
+  var idList = [];
+  for (var trap in trapData) {
+   idList.push(trapData[trap]._id);
+  }
+  console.log("Sending updated id list");
+  subject.next({
+    ids: idList
   }); 
-  */
 }
 
 export { getSiteList, getTrapList };

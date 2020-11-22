@@ -45,7 +45,7 @@ function readTraficData() {
 
   return new Observable(subscriber => {
     channel.on("data", batchTraficData => {
-      console.log('Oie! :D')
+      console.log('Data received from gyarados')
       const reads = processTrafic(batchTraficData);
       Object.values(reads).forEach(data => subscriber.next(data));
       lastReceivedTraficData = batchTraficData;
@@ -56,9 +56,9 @@ function readTraficData() {
 wss.on('connection', function(ws) {
   console.log('New connection');
 
-  ws.on('data', function(data) {
-    var idList = data.ids;
-    console.log('New id list received in server: ' + idList);
+  ws.on('message', function(data) {
+    var idList = JSON.parse(data).ids;
+    console.log(`New id list received in server with ${idList.length} ids`);
     requiredIds = idList;
   });
 
