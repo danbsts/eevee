@@ -39,6 +39,7 @@ services:
       - ponyta
   metapod:
     container_name: metapod
+    image: couchbase:community-6.5.1
     ports:
       - 8091:8091
       - 8092:8092
