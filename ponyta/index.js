@@ -17,6 +17,9 @@ const cluster = new couchbase.Cluster("couchbase://localhost", {
   password: "123456",
 });
 
+const bucket = cluster.bucket("records");
+const collection = bucket.defaultCollection();
+
 function sendResponse(res, body) {
     res.setHeader("content-type", "application/json");
     res.status(200).send(body);

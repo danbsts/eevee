@@ -25,15 +25,15 @@ observable.subscribe(data => {
 
 function processTrafic(data) {
   const quoteExp = new RegExp("\"", 'g');
-  const reads = {};
+  const reads = [];
   data.trafic.forEach(feed => {
     const id = Number(feed.id.replace(quoteExp, ""));
-    reads[id] = {
+    reads.push({
       id,
       speed: feed.speed.map(speed => Number(speed)),
       timeInterval: feed.timeInterval.replace(quoteExp, ""),
       date: feed.date.replace(quoteExp, ""),
-    };
+    });
   });
   return reads;
 }
@@ -48,7 +48,8 @@ function readTraficData() {
     channel.on("data", batchTraficData => {
       console.log('Data received from gyarados')
       const reads = processTrafic(batchTraficData);
-      sendCompleteData(batchTraficData);
+      sendCompleteData(batchTraficData).then( x => {
+      }).catch(e => console.log(e));
       Object.values(reads).forEach(data => subscriber.next(data));
       lastReceivedTraficData = batchTraficData;
     });
@@ -79,7 +80,7 @@ async function sendCompleteData(batchTraficData) {
   return ponyta.post("/records", {
     data: processTrafic(batchTraficData)
   }).then((res) => {
-    console.log(res);
+    console.log(res.data);
   });
 }
 
