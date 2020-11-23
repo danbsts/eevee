@@ -102,7 +102,7 @@ function Dashboards() {
   }, []);
 
   useEffect(() => {
-    api.get("/records/days").then((res) => {
+    api.get("/days").then((res) => {
       const { months } = res.data;
       if(!months) return;
       setMonthList(months);

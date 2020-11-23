@@ -73,7 +73,7 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
     });
   });
 
-  app.get("/records/days", (_, res) => {
+  app.get("/days", (_, res) => {
     getRecordsDays().then(result => {
       res.send(result)
     })
