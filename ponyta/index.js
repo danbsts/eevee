@@ -4,6 +4,7 @@ const cors = require("cors");
 const couchbase = require("couchbase");
 const { loadSpeedTrapsData } = require("./speed_traps");
 const sites = require("./sites.json");
+addLinksToSites();
 
 const EXPRESS_PORT = 10077;
 
@@ -26,7 +27,7 @@ function sendResponse(res, body) {
 
 loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
   app.get("/sites/", (_, res) => {
-    const body = Object.values(sites);;
+    const body = Object.values(sites);
 
     sendResponse(res, body);
   });
@@ -42,7 +43,7 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
     sendResponse(res, body);
   });
 
-  app.post("/records", (req, res) => {
+  app.post("/records/", (req, res) => {
     const { data } = req.body;
     Promise.all(data.map((record) => sendRecord(record))).then((result) => {
       const success = result.reduce(
@@ -57,7 +58,7 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
     });
   });
 
-  app.get("/records", (req, res) => {
+  app.get("/records/", (req, res) => {
     const { data } = req.query;
     let data2 = JSON.parse(data)
     getRecordsByIds(data2.ids, data2.date).then((result) => {
@@ -69,6 +70,21 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
     console.log(`Ponyta is running on port ${EXPRESS_PORT}`)
   );
 });
+
+function addLinksToSites() {
+  Object.keys(sites).forEach(siteId => {
+    sites[siteId] = {
+      ...sites[siteId],
+      links: [
+        {
+          href: `/sites/${siteId}`,
+          rel: "site",
+          type: "GET",
+        },
+      ], 
+    }
+  });
+}
 
 const sendRecord = async (record) => {
   try {
