@@ -9,18 +9,20 @@ function Main() {
   const [traps, setTraps] = useState([]);
 
   useEffect(() => {
-    getSiteList();
-    getTrapList(1, webSocket).then((res) => {
-      setTraps(
-        res.map((el) => ({
-          id: el.equipamento,
-          lat: el.latitude,
-          lng: el.longitude,
-          address: el.logradouro,
-          maxSpeed: +el.velocidade_via.split(" ")[0],
-          cars: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        }))
-      );
+    getSiteList().then(x => {
+      getTrapList(x[0].links[0], webSocket).then((res) => {
+        console.log(res);
+        setTraps(
+          res.map((el) => ({
+            id: el.equipamento,
+            lat: el.latitude,
+            lng: el.longitude,
+            address: el.logradouro,
+            maxSpeed: +el.velocidade_via.split(" ")[0],
+            cars: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          }))
+        );
+      });
     });
   }, []);
 

@@ -24,13 +24,24 @@ function sendCharizardIdList(trapData, webSocket) {
   }));
 }
 
-function getTotalInfrigements(traficData, trap) {
-  var pos = trap.velocidade_via.charAt(0);
-  var total = 0;
-  for(var i = pos; i < traficData.speed.length; i++){
-    total += traficData.speed[i];
+function getTotalInfrigements(trap) {
+  var pos = trap.maxSpeed/10;
+  var totalMulta = 0.0;
+  for(var i = pos; i < trap.cars.length; i++){
+    totalMulta += trap.cars[i];
   }
-  return total;
+  var total = 0.0;
+  for(var i = 0; i < trap.cars.length; i++){
+    total += trap.cars[i];
+  }
+  if(total==0) return 1;
+  var ratio = totalMulta/total;
+  if(ratio >= 0.04){
+    return -1;
+  }else if (ratio >= 0.02){
+    return 0;
+  }
+  return 1;
 }
 
 function findTrap(trapId, trapList) {
