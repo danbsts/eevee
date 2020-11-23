@@ -49,7 +49,7 @@ function readTraficData() {
   return new Observable((subscriber) => {
     channel.on("data", (batchTraficData) => {
       const reads = processTrafic(batchTraficData);
-      console.log("Data received from gyarados");
+      console.log("Data received from gyarados: " + reads.length);
       sendCompleteData(batchTraficData)
         .then((x) => {})
         .catch((e) => console.log(e));
