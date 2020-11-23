@@ -44,7 +44,7 @@ function FlexLayout({
     <div
       style={{
         ...style,
-        width: "100%",
+        width: style?.width ?? '100%',
         padding: style?.padding ?? 0,
         display: "flex",
         alignItems: align,

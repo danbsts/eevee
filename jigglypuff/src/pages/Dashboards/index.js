@@ -15,9 +15,22 @@ const colorsAlpha = [
   "rgba(95, 155, 232, 0.9)",
 ];
 
+const writtenMonths = [
+  'Janeiro de ',
+  'Fevereiro de ',
+  'Março de ',
+  'Abril de ',
+  'Maio de ',
+  'Agosto de ',
+  'Setembro de ',
+  'Outubro de ',
+  'Novembro de ',
+  'Dezembro de ',
+]
+
 function Dashboards() {
   const [traps, setTraps] = useState([]);
-  const [month, setMonth] = useState();
+  const [month, setMonth] = useState('Por favor selecione um mês na lateral esquerda.');
   const [monthList, setMonthList] = useState([]);
 
   const formatMoney = (number) => {
@@ -67,6 +80,7 @@ function Dashboards() {
           day.reduce((acc, cur) => acc + cur, 0)
         );
       });
+      setMonth(`${writtenMonths[+m.split('-')[1] - 1]}${m.split('-')[0]}`)
       setTraps([...traps]);
     });
   };
@@ -90,8 +104,8 @@ function Dashboards() {
   useEffect(() => {
     api.get("/records/days").then((res) => {
       const { months } = res.data;
+      if(!months) return;
       setMonthList(months);
-      console.log(months);
     });
   }, []);
 
@@ -113,22 +127,24 @@ function Dashboards() {
           ))}
         </Card>
         <div style={{ width: "70%" }}>
-          <Text holder="bold" text="Novembro 2020" />
+          <Text holder="bold" text={month} />
           <Chart
             data={{
               labels: Array.from({ length: 30 }, (_, i) => i + 1),
               datasets:
                 traps.length > 0 && traps[0].finesValue
                   ? traps
-                      .map((tr, i) => ({
+                      .map((tr, i) => {
+                        console.log(tr)
+                        return {
                         label: tr.address,
                         data: tr.fines,
                         fill: true,
-                        ord: tr.fines.reduce((acc, cur) => acc + cur, 0),
+                        ord: (tr.fines != undefined ? tr.fines.reduce((acc, cur) => acc + cur, 0) : 0),
                         backgroundColor: colors[i % 3],
                         borderColor: colorsAlpha[i % 3],
                         yAxisID: "y-axis-1",
-                      }))
+                      }})
                       .sort((a, b) => (a.ord <= b.ord ? -1 : 1))
                       .slice(traps.length - 3, traps.length)
                   : [],
@@ -141,9 +157,6 @@ function Dashboards() {
                 holder="header"
                 text="Resumo do mes"
               />
-              {/* <div style={{ background: "#EFEFEF", padding: "15px" }}>
-                <Clock />
-              </div> */}
               <div style={{ padding: "0 20px 20px" }}>
                 <FlexLayout>
                   <Text
