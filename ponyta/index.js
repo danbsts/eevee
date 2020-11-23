@@ -33,6 +33,7 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
 
   app.get("/sites/:site/", (req, res) => {
     const siteId = +req.params.site;
+    console.log(siteToSpeedTraps)
 
     const body = (siteToSpeedTraps[siteId] || []).map(
       (speedTrapId) => speedTraps[speedTrapId]
