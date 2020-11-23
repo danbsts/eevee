@@ -59,8 +59,8 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
   });
 
   app.get("/records", (req, res) => {
-    const { ids, date } = req.query;
-    getRecordsByIds(ids, date).then((result) => {
+    const { ids, beginDate, endDate } = req.query;
+    getRecordsByIds(ids, beginDate, endDate).then((result) => {
       res.send({ data: result, totalCars: result.totalCars});
     });
   });
@@ -96,14 +96,15 @@ const sendRecord = async (record) => {
   }
 };
 
-const getRecordsByIds = async (ids, date) => {
+const getRecordsByIds = async (ids, beginDate, endDate) => {
   try {
     const query = `
             SELECT * FROM \`records\`
             WHERE id IN $1
-                AND date = $2
+                AND date >= $2
+                AND date <= $3
         `;
-    const options = { parameters: [JSON.parse(ids), date] };
+    const options = { parameters: [JSON.parse(ids), beginDate, endDate] };
     const result = await cluster.query(query, options);
     let totalCars = 0;
     result.rows.forEach(element => {
