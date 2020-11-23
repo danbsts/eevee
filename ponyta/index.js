@@ -2,7 +2,6 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
 const couchbase = require("couchbase");
-
 const { loadSpeedTrapsData } = require("./speed_traps");
 const sites = require("./sites.json");
 
@@ -90,7 +89,13 @@ const getRecordsByIds = async (ids, date) => {
         `;
     const options = { parameters: [ids, date] };
     const result = await cluster.query(query, options);
-    console.log(result.rows)
+
+    let totalCars = 0;
+    result.forEach(element => {
+      totalCars += element.records.totalCars
+    });
+    result.rows.totalCars = totalCars
+
     return result.rows;
   } catch (error) {
     console.log(error);
