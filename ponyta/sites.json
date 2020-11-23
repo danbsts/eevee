@@ -1,16 +1,30 @@
-{
-    "1": {
+[
+    {
         "id": 1,
         "name": "santo amaro - marco zero",
         "lat": -8.054140723053706,
         "long": -34.87542475460458,
-        "radius": 1000
+        "radius": 1000,
+        "links": [
+            {
+                "href": "/sites/1",
+                "rel": "Traps on site",
+                "type": "GET"
+            }
+        ]
     },
-    "2": {
+    {
         "id": 2,
         "name": "encruzilhada - santo amaro",
         "lat": -8.039920100593143,
         "long": -34.88508769272615,
-        "radius": 1.75
+        "radius": 1.75,
+        "links": [
+            {
+                "href": "/sites/2",
+                "rel": "Traps on site",
+                "type": "GET"
+            }
+        ]
     }
-}
+]

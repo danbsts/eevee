@@ -6,8 +6,8 @@ async function getSiteList() {
   });
 }
 
-function getTrapList(siteId, webSocket) {
-  return api.get(`/sites/${siteId}`).then((res) => {
+function getTrapList(link, webSocket) {
+  return api.get(link.href).then((res) => {
     sendCharizardIdList(res.data, webSocket);
     return res.data;
   });

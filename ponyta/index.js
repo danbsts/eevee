@@ -26,7 +26,7 @@ function sendResponse(res, body) {
 
 loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
   app.get("/sites/", (_, res) => {
-    const body = Object.values(sites);
+    const body = sites;
 
     sendResponse(res, body);
   });

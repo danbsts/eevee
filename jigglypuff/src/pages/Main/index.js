@@ -10,8 +10,9 @@ function Main() {
       console.log(message.data);
     };
 
-    getSiteList();
-    getTrapList(1, webSocket);
+    var site = getSiteList().then(res => {
+      getTrapList(res[0].links[0], webSocket);
+    });
   }, []);
 
   return (
