@@ -29,9 +29,10 @@ function distance(lon1, lat1, lon2, lat2) {
 function loadSpeedTrapsData(sites, callback) {
     speedTraps = {};
     siteToSpeedTraps = {};
+    const siteDeId = new Set();
 
     trapData.forEach(speedTrap => {
-        speedTraps[speedTrap._id] = speedTrap;
+        speedTraps[speedTrap.equipamento] = speedTrap;
 
         Object.entries(sites).forEach(entry => {
             const [ siteId, site ] = entry;
@@ -40,7 +41,10 @@ function loadSpeedTrapsData(sites, callback) {
                 if (!siteToSpeedTraps.hasOwnProperty(siteId)) {
                     siteToSpeedTraps[siteId] = [];
                 }
-                siteToSpeedTraps[siteId].push(speedTrap._id);
+                if(!speedTrap.equipamento.startsWith('FS') && !siteDeId.has(speedTrap.equipamento)){
+                    siteToSpeedTraps[siteId].push(speedTrap.equipamento);
+                    siteDeId.add(speedTrap.equipamento)
+                }
             }
         });
     });

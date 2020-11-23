@@ -10,7 +10,7 @@ function Main() {
 
   useEffect(() => {
     getSiteList();
-    getTrapList(1, webSocket).then(({ data: res }) => {
+    getTrapList(1, webSocket).then((res) => {
       setTraps(
         res.map((el) => ({
           id: el.equipamento,
@@ -22,17 +22,38 @@ function Main() {
         }))
       );
     });
-    webSocket.onmessage = (message) => {
-      const { trafic } = JSON.parse(message.data);
-      setTotalCars(
-        (prev) =>
-          prev +
-          trafic
-            .map((el) => el.speed.reduce((acc, cur) => acc + cur, 0))
-            .reduce((acc, cur) => acc + cur, 0)
-      );
-    };
   }, []);
+
+  useEffect(() => {
+    if(totalCars == 0) {
+      webSocket.onmessage = (message) => {
+        const { trafic } = JSON.parse(message.data);
+        let curFines = 0;
+        const newTraps = [...traps]
+        trafic.forEach((element) => {
+          const trap = newTraps.find((trap) => trap.id === element.id);
+          if(!trap) {
+            return;
+          }
+          element.speed.forEach((el, i) => {
+            trap.cars[i] += el;
+            if ((i + 1) * 10 - 9 > trap.maxSpeed) {
+              curFines += el;
+            }
+          });
+        });
+        setFines((prev) => prev + curFines);
+        setTraps(newTraps);
+        setTotalCars(
+          (prev) =>
+            prev +
+            trafic
+              .map((el) => el.speed.reduce((acc, cur) => acc + cur, 0))
+              .reduce((acc, cur) => acc + cur, 0)
+        );
+      };
+    }
+  }, [traps])
 
   return (
     <FlexLayout justify="around" style={{ padding: "30px" }}>

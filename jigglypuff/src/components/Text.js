@@ -42,7 +42,7 @@ function Text({ holder, text, style }) {
   if(holder === 'subtitle') {
     return <Subtitle style={style}>{text}</Subtitle>;
   }
-  if(holder == 'label') {
+  if(holder === 'label') {
     return <Label style={style}>{text}</Label>;
   }
   return <Default style={style}>{text}</Default>;

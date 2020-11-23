@@ -29,7 +29,7 @@ function getTraficData(call) {
         let streamData = filterData()
         console.log(streamData[0])
         call.write({trafic: streamData})
-    },30000);
+    },10000);
 }
 
 function organizeData() {
