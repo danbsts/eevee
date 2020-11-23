@@ -40,7 +40,9 @@ function loadSpeedTrapsData(sites, callback) {
                 if (!siteToSpeedTraps.hasOwnProperty(siteId)) {
                     siteToSpeedTraps[siteId] = [];
                 }
-                siteToSpeedTraps[siteId].push(speedTrap._id);
+                if(!speedTrap.equipamento.contains('FS')){
+                    siteToSpeedTraps[siteId].push(speedTrap.equipamento);
+                }
             }
         });
     });
