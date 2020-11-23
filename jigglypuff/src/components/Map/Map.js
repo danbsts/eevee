@@ -2,8 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import TrapPopup from "./TrapPopup";
 
-function Map({traps, area}) {
-  console.log('hi', area)
+function Map({ traps, area }) {
   return (
     <MapContainer
       style={{ width: "900px", height: "700px" }}
@@ -14,7 +13,9 @@ function Map({traps, area}) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {traps.map(el => (<TrapPopup trap={el}/>))}
+      {traps.map((el) => (
+        <TrapPopup trap={el} />
+      ))}
     </MapContainer>
   );
 }

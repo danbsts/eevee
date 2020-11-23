@@ -135,7 +135,6 @@ function Dashboards() {
                 traps.length > 0 && traps[0].finesValue
                   ? traps
                       .map((tr, i) => {
-                        console.log(tr)
                         return {
                         label: tr.address,
                         data: tr.fines,
