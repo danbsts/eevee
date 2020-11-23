@@ -29,23 +29,23 @@ const Subtitle = styled.div`
   font-size: 12px;
 `;
 
-function Text({ holder, text, style }) {
+function Text({ holder, text, style, onClick }) {
   if(holder === 'title') {
-    return <Title style={style}>{text}</Title>;
+    return <Title style={style} onClick={onClick}>{text}</Title>;
   }
   if(holder === 'header') {
-    return <Header style={style}>{text}</Header>;
+    return <Header style={style} onClick={onClick}>{text}</Header>;
   }
   if(holder === 'bold') {
-    return <Bold style={style}>{text}</Bold>;
+    return <Bold style={style} onClick={onClick}>{text}</Bold>;
   }
   if(holder === 'subtitle') {
-    return <Subtitle style={style}>{text}</Subtitle>;
+    return <Subtitle style={style} onClick={onClick}>{text}</Subtitle>;
   }
   if(holder === 'label') {
-    return <Label style={style}>{text}</Label>;
+    return <Label style={style} onClick={onClick}>{text}</Label>;
   }
-  return <Default style={style}>{text}</Default>;
+  return <Default style={style} onClick={onClick}>{text}</Default>;
 }
 
 export default Text;

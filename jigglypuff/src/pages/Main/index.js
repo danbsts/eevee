@@ -9,24 +9,16 @@ function Main() {
   const [traps, setTraps] = useState([]);
 
   const formatMoney = (number) => {
-    return number.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  }
+    return number.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  };
 
   const getRanking = () => {
     if (traps.length < 3) {
       return <Text text="Loading..." />;
     }
-    console.log(traps.map((el) => ({
-      ...el,
-      fineNum: el.cars.reduce((acc, cur, i) => {
-        console.log(acc, cur, i)
-        const speed = (i + 1) * 10;
-        if (speed > el.maxSpeed) {
-          acc += cur;
-        }
-        return acc;
-      }, 0),
-    })))
     const addresses = traps
       .map((el) => ({
         ...el,
@@ -41,10 +33,19 @@ function Main() {
       .sort((a, b) => (a.fineNum <= b.fineNum ? 1 : -1))
       .map((el) => ({ add: el.address, val: el.fineNum }));
     return (
-      <div style={{ padding: '10px 0 0 0'}}>
-      <Text text={`${addresses[0].val} - ${addresses[0].add.split("-")[0]}`} style={{ padding: '2px 0', fontSize: '14px'}}/>
-      <Text text={`${addresses[1].val} - ${addresses[1].add.split("-")[0]}`} style={{ padding: '2px 0', fontSize: '14px'}}/>
-      <Text text={`${addresses[2].val} - ${addresses[2].add.split("-")[0]}`} style={{ padding: '2px 0', fontSize: '14px'}}/>
+      <div style={{ padding: "10px 0 0 0" }}>
+        <Text
+          text={`${addresses[0].val} - ${addresses[0].add.split("-")[0]}`}
+          style={{ padding: "2px 0", fontSize: "14px" }}
+        />
+        <Text
+          text={`${addresses[1].val} - ${addresses[1].add.split("-")[0]}`}
+          style={{ padding: "2px 0", fontSize: "14px" }}
+        />
+        <Text
+          text={`${addresses[2].val} - ${addresses[2].add.split("-")[0]}`}
+          style={{ padding: "2px 0", fontSize: "14px" }}
+        />
       </div>
     );
   };
@@ -103,7 +104,7 @@ function Main() {
         <Text style={{ padding: "10px" }} holder="header" text="Navegaçao" />
         <Map traps={traps} />
       </div>
-      <div style={{ padding: '40px 0 0 30px'}}>
+      <div style={{ padding: "40px 0 0 30px" }}>
         <Card>
           <Text
             style={{ padding: "20px" }}
@@ -140,25 +141,26 @@ function Main() {
           <Text holder="header" text="Arrecadação com infrações" />
           <Text
             holder="bold"
-            text={`${formatMoney(traps
-              .map((el) => {
-                let price = 0;
-                el.cars.forEach((car, i) => {
-                  const speed = (i + 1) * 10;
-                  if (speed > el.maxSpeed) {
-                    if (speed <= el.maxSpeed * 1.2) {
-                      price += 130.16 * car;
-                    } else if (speed <= el.maxSpeed * 1.5) {
-                      price += 195.23 * car;
-                    } else {
-                      price += 880.41 * car;
+            text={`${formatMoney(
+              traps
+                .map((el) => {
+                  let price = 0;
+                  el.cars.forEach((car, i) => {
+                    const speed = (i + 1) * 10;
+                    if (speed > el.maxSpeed) {
+                      if (speed <= el.maxSpeed * 1.2) {
+                        price += 130.16 * car;
+                      } else if (speed <= el.maxSpeed * 1.5) {
+                        price += 195.23 * car;
+                      } else {
+                        price += 880.41 * car;
+                      }
                     }
-                  }
-                });
-                return price;
-              })
-              .reduce((acc, cur) => acc + cur, 0)
-              )}`}
+                  });
+                  return price;
+                })
+                .reduce((acc, cur) => acc + cur, 0)
+            )}`}
             style={{ fontSize: "42px", alignSelf: "flex-end" }}
           />
         </Card>
