@@ -59,11 +59,25 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
   });
 
   app.get("/records", (req, res) => {
+    if (Object.keys(req.query).length === 0) {
+        res.status(400).send({message: 'Results are too big, please use query parameters to filter by: ids, beginDate and endDate.'})
+        return;
+    }
     const { ids, beginDate, endDate } = req.query;
+    if (!ids || !beginDate || !endDate) {
+      res.status(400).send({message: 'Missing parameters.'})
+      return;
+    }
     getRecordsByIds(ids, beginDate, endDate).then((result) => {
-      res.send({ data: result, totalCars: result.totalCars});
+      res.send( result);
     });
   });
+
+  app.get("/records/days", (_, res) => {
+    getRecordsDays().then(result => {
+      res.send(result)
+    })
+  })
 
   app.listen(EXPRESS_PORT, () =>
     console.log(`Ponyta is running on port ${EXPRESS_PORT}`)
@@ -106,14 +120,37 @@ const getRecordsByIds = async (ids, beginDate, endDate) => {
         `;
     const options = { parameters: [JSON.parse(ids), beginDate, endDate] };
     const result = await cluster.query(query, options);
+    const records = {}
     let totalCars = 0;
     result.rows.forEach(element => {
       totalCars += element.records.totalCars
+      if (!records[element.records.id]) {
+        records[element.records.id] = {}
+      }
+      const rec = records[element.records.id];
+      if(!rec[element.records.date]) {
+        rec[element.records.date] = element.records.speed;
+      } else {
+        rec[element.records.date] = element.records.speed.map((car, i) => (rec[element.records.date][i] + car));
+      }
     });
     result.rows.totalCars = totalCars
-    return result.rows;
+    return {records, totalCars};
   } catch (error) {
     console.log(error);
     return [];
   }
 };
+
+const getRecordsDays = async () => {
+  const query = "SELECT ARRAY_AGG(DISTINCT date) as days FROM `records`";
+  return cluster.query(query, {}).then(res => {
+    const {days} = res.rows[0];
+    const months = {};
+    days.forEach(day => {
+      const spl = day.split('-');
+      months[(`${spl[0]}-${spl[1]}`)] = 1;
+    })
+    return {days, months: Object.keys(months)}
+  }).catch(error => console.log(error))
+}
