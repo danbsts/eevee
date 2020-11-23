@@ -24,4 +24,17 @@ function sendCharizardIdList(trapData, webSocket) {
   }));
 }
 
-export { getSiteList, getTrapList };
+function getTotalInfrigements(traficData, trap) {
+  var pos = trap.velocidade_via.charAt(0);
+  var total = 0;
+  for(var i = pos; i < traficData.speed.length; i++){
+    total += traficData.speed[i];
+  }
+  return total;
+}
+
+function findTrap(trapId, trapList) {
+  return trapList.find(t => t.equipamento === trapId);
+}
+
+export { getSiteList, getTrapList, getTotalInfrigements, findTrap };
