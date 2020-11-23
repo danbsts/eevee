@@ -31,11 +31,13 @@ function processTrafic(data) {
   const reads = [];
   data.trafic.forEach((feed) => {
     const id = Number(feed.id.replace(quoteExp, ""));
+    const speedTotal = feed.speed.map((speed) => Number(speed));
     reads.push({
       id,
-      speed: feed.speed.map((speed) => Number(speed)),
+      speed: speedTotal,
       timeInterval: feed.timeInterval.replace(quoteExp, ""),
       date: feed.date.replace(quoteExp, ""),
+      totalCars: speedTotal.reduce((a, b) => a + b, 0)
     });
   });
   return reads;
@@ -49,8 +51,8 @@ function readTraficData() {
 
   return new Observable((subscriber) => {
     channel.on("data", (batchTraficData) => {
-      console.log("Data received from gyarados");
       const reads = processTrafic(batchTraficData);
+      console.log("Data received from gyarados: " + JSON.stringify(reads));
       sendCompleteData(batchTraficData)
         .then((x) => {})
         .catch((e) => console.log(e));
