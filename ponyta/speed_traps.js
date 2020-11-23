@@ -29,7 +29,23 @@ function distance(lon1, lat1, lon2, lat2) {
 function loadSpeedTrapsData(sites, callback) {
     speedTraps = {};
     siteToSpeedTraps = {};
-    const siteDeId = new Set();
+    siteToSpeedTraps["0"] = [];
+    siteToSpeedTraps["1"] = [];
+    siteToSpeedTraps["2"] = [];
+    siteToSpeedTraps["3"] = [];
+    siteToSpeedTraps["4"] = [];
+    siteToSpeedTraps["5"] = [];
+    siteToSpeedTraps["6"] = [];
+    siteToSpeedTraps["7"] = [];
+    const siteDeId = [];
+    siteDeId["0"] = new Set();
+    siteDeId["1"] = new Set();
+    siteDeId["2"] = new Set();
+    siteDeId["3"] = new Set();
+    siteDeId["4"] = new Set();
+    siteDeId["5"] = new Set();
+    siteDeId["6"] = new Set();
+    siteDeId["7"] = new Set();
 
     trapData.forEach(speedTrap => {
         speedTraps[speedTrap.equipamento] = speedTrap;
@@ -38,12 +54,9 @@ function loadSpeedTrapsData(sites, callback) {
             const [ siteId, site ] = entry;
             const d = distance(site.long, site.lat, speedTrap.longitude, speedTrap.latitude);
             if (d <= site.radius) {
-                if (!siteToSpeedTraps.hasOwnProperty(siteId)) {
-                    siteToSpeedTraps[siteId] = [];
-                }
-                if(!speedTrap.equipamento.startsWith('FS') && !siteDeId.has(speedTrap.equipamento)){
+                if(!speedTrap.equipamento.startsWith('FS') && !siteDeId[siteId].has(speedTrap.equipamento)){
                     siteToSpeedTraps[siteId].push(speedTrap.equipamento);
-                    siteDeId.add(speedTrap.equipamento)
+                    siteDeId[siteId].add(speedTrap.equipamento)
                 }
             }
         });
