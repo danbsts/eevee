@@ -3,7 +3,6 @@ const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 const { Observable } = require("rxjs");
 const { filter } = require("rxjs/operators");
-const { read } = require("fs");
 const packageDef = protoLoader.loadSync("./protocol/eevee.proto", {});
 const grpcObject = grpc.loadPackageDefinition(packageDef);
 var WebSocketServer = require("ws").Server;
@@ -57,7 +56,6 @@ function readTraficData() {
         .catch((e) => console.log(e));
       Object.values(reads).forEach((data) => {
         subscriber.next(data);
-        console.log("dale jubileu", data);
       });
       lastReceivedTraficData = batchTraficData;
     });
@@ -73,13 +71,16 @@ wss.on("connection", function (ws) {
     requiredIds = idList;
   });
 
-  var interval = setInterval(function () {
-    if (toBeSentTraficData.length != 0) {
-      sendDataToUi(ws, toBeSentTraficData);
-      toBeSentTraficData = [];
-    }
-  }, 1000);
+  ws.on("close", () => {
+    console.log("Client disconnected.");
+  });
 });
+
+var interval = setInterval(function () {
+  if (toBeSentTraficData.length != 0 && wss.clients.size > 0) {
+    sendDataToUi(toBeSentTraficData);
+  }
+}, 1000);
 
 async function sendCompleteData(batchTraficData) {
   if (batchTraficData.trafic.length == 0) {
@@ -89,15 +90,18 @@ async function sendCompleteData(batchTraficData) {
     .post("/records", {
       data: processTrafic(batchTraficData),
     })
-    .then((res) => {
-      console.log(res.data);
+    .catch((error) => {
+      console.log(error);
     });
 }
 
-function sendDataToUi(ws, batchTraficData) {
-  ws.send(
-    JSON.stringify({
-      trafic: batchTraficData,
-    })
-  );
+function sendDataToUi(batchTraficData) {
+  wss.clients.forEach((client) => {
+    client.send(
+      JSON.stringify({
+        trafic: batchTraficData,
+      })
+    );
+  });
+  toBeSentTraficData = [];
 }

@@ -70,7 +70,7 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
 
 const sendRecord = async (record) => {
   try {
-    const key = `${record.id}`;
+    const key = `${record.id}${record.date}${record.timeInterval}`;
     const result = await collection.upsert(key, record);
     return true;
   } catch (error) {

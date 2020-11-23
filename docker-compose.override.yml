@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  ponyta:
+    container_name: ponyta
+    build:
+      context: ./ponyta
+    ports:
+      - 10077:10077
+    restart: always
+    depends_on:
+      - metapod
+  metapod:
+    container_name: metapod
+    image: couchbase:community-6.5.1
+    ports:
+      - 8091:8091
+      - 8092:8092
+      - 8093:8093
+      - 8094:8094
+      - 11210:11210
+    volumes:
+    - metapod:/opt/couchbase/var
+volumes:
+  metapod:

@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import { Map, Text, Card, Clock, FlexLayout } from "../../components";
 import { getSiteList, getTrapList } from '../../service/main';
+const webSocket = new WebSocket('ws://0.0.0.0:10003/traficData');
 
 function Main() {
+
   useEffect(() => {
+    webSocket.onmessage = (message) => {
+      console.log(message.data);
+    };
     getSiteList();
   }, []);
 
