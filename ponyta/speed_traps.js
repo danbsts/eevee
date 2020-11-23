@@ -35,8 +35,6 @@ function loadSpeedTrapsData(sites, callback) {
     siteToSpeedTraps["3"] = [];
     siteToSpeedTraps["4"] = [];
     siteToSpeedTraps["5"] = [];
-    siteToSpeedTraps["6"] = [];
-    siteToSpeedTraps["7"] = [];
     const siteDeId = [];
     siteDeId["0"] = new Set();
     siteDeId["1"] = new Set();
@@ -44,8 +42,6 @@ function loadSpeedTrapsData(sites, callback) {
     siteDeId["3"] = new Set();
     siteDeId["4"] = new Set();
     siteDeId["5"] = new Set();
-    siteDeId["6"] = new Set();
-    siteDeId["7"] = new Set();
 
     trapData.forEach(speedTrap => {
         speedTraps[speedTrap.equipamento] = speedTrap;

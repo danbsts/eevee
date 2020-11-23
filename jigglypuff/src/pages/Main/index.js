@@ -7,6 +7,8 @@ function Main() {
   const [fines, setFines] = useState(0);
   const [totalCars, setTotalCars] = useState(0);
   const [traps, setTraps] = useState([]);
+  const [areas, setAreas] = useState([]);
+  const [selectedArea, selectArea] = useState(undefined)
 
   const formatMoney = (number) => {
     return number.toLocaleString("pt-BR", {
@@ -14,6 +16,24 @@ function Main() {
       currency: "BRL",
     });
   };
+
+  const changeArea = (area) => {
+    selectArea(area);
+    setFines(0);
+    setTotalCars(0);
+    getTrapList(area.links[0], webSocket).then((res) => {
+      setTraps(
+        res.map((el) => ({
+          id: el.equipamento,
+          lat: el.latitude,
+          lng: el.longitude,
+          address: el.logradouro,
+          maxSpeed: +el.velocidade_via.split(" ")[0],
+          cars: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        }))
+      );
+    });
+  }
 
   const getRanking = () => {
     if (traps.length < 3) {
@@ -52,6 +72,8 @@ function Main() {
 
   useEffect(() => {
     getSiteList().then((response) => {
+      setAreas(response);
+      selectArea(response[0]);
       getTrapList(response[0].links[0], webSocket).then((res) => {
         setTraps(
           res.map((el) => ({
@@ -102,9 +124,9 @@ function Main() {
     <FlexLayout justify="center" style={{ padding: "30px" }}>
       <div>
         <Text style={{ padding: "10px" }} holder="header" text="Navegaçao" />
-        <Map traps={traps} />
+        {selectedArea && <Map traps={traps} area={selectedArea}/>}
       </div>
-      <div style={{ padding: "40px 0 0 30px" }}>
+      <div style={{ padding: "40px 0 0 30px", maxWidth: '350px' }}>
         <Card>
           <Text
             style={{ padding: "20px" }}
@@ -167,6 +189,16 @@ function Main() {
         <Card style={{ padding: "20px" }}>
           <Text holder="header" text="Locais com mais infrações" />
           {getRanking()}
+        </Card>
+        <Card style={{ padding: "20px" }}>
+          <Text holder="header" text="Locais com mais infrações" />
+          {areas.map(area => {
+            return <Text
+            text={`${area.name}`}
+            style={{ padding: "2px 0", fontSize: "14px" }}
+            onClick={() => changeArea(area)}
+          />
+          })}
         </Card>
       </div>
     </FlexLayout>
