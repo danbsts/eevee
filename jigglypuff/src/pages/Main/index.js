@@ -9,7 +9,9 @@ function Main() {
     webSocket.onmessage = (message) => {
       console.log(message.data);
     };
+
     getSiteList();
+    getTrapList(1, webSocket);
   }, []);
 
   return (

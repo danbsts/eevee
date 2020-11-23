@@ -15,10 +15,7 @@ const client = new eeveePackage.eeveeService(
   grpc.credentials.createInsecure()
 );
 var toBeSentTraficData = [];
-var requiredIds = [5962];
-// for(var i = 0; i < 200; i++){
-//   requiredIds.push(i.toString());
-// }
+var requiredIds = ['5962'];
 const observable = readTraficData().pipe(
   filter((data) => requiredIds.includes(data.id))
 );
@@ -30,7 +27,7 @@ function processTrafic(data) {
   const quoteExp = new RegExp('"', "g");
   const reads = [];
   data.trafic.forEach((feed) => {
-    const id = Number(feed.id.replace(quoteExp, ""));
+    const id = feed.id.replace(quoteExp, "");
     const speedTotal = feed.speed.map((speed) => Number(speed));
     reads.push({
       id,
@@ -52,7 +49,7 @@ function readTraficData() {
   return new Observable((subscriber) => {
     channel.on("data", (batchTraficData) => {
       const reads = processTrafic(batchTraficData);
-      console.log("Data received from gyarados: " + JSON.stringify(reads));
+      console.log("Data received from gyarados");
       sendCompleteData(batchTraficData)
         .then((x) => {})
         .catch((e) => console.log(e));

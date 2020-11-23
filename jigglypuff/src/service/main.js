@@ -1,34 +1,27 @@
 import api from "./axios";
 
-var traficData = [];
-var siteData = [];
-var trapData = [];
-getSiteList().then((result) => {
-  siteData = result;
-  trapData = getTrapList(siteData[0].id);
-});
-
 async function getSiteList() {
   return api.get("/sites").then((res) => {
     return res.data;
   });
 }
 
-function getTrapList(siteId) {
+function getTrapList(siteId, webSocket) {
   return api.get(`/sites/${siteId}`).then((res) => {
-    sendCharizardIdList(res.data);
+    sendCharizardIdList(res.data, webSocket);
+    return res.data;
   });
 }
 
-function sendCharizardIdList(trapData) {
+function sendCharizardIdList(trapData, webSocket) {
   var idList = [];
   for (var trap in trapData) {
-    idList.push(trapData[trap]._id);
+    idList.push(trapData[trap].equipamento);
   }
   console.log("Sending updated id list");
-  // subject.next({
-  //   ids: idList,
-  // });
+  webSocket.send(JSON.stringify({
+    ids: idList,
+  }));
 }
 
 export { getSiteList, getTrapList };
