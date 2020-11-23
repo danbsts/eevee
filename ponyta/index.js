@@ -59,8 +59,10 @@ loadSpeedTrapsData(sites, (speedTraps, siteToSpeedTraps) => {
 
   app.get("/records", (req, res) => {
     const { data } = req.query;
-    let records = getRecordsByIds(data.ids, data.date, data.timeInterval);
-    res.send({ data: records });
+    let data2 = JSON.parse(data)
+    getRecordsByIds(data2.ids, data2.date).then((result) => {
+      res.send({ data: result });
+    });
   });
 
   app.listen(EXPRESS_PORT, () =>
@@ -79,16 +81,16 @@ const sendRecord = async (record) => {
   }
 };
 
-const getRecordsByIds = async (ids, date, timeInterval) => {
+const getRecordsByIds = async (ids, date) => {
   try {
     const query = `
             SELECT * FROM \`records\`
             WHERE id IN $1
-                AND timeInterval = $2
-                AND date = $3
+                AND date = $2
         `;
-    const options = { parameters: [ids, date, timeInterval] };
+    const options = { parameters: [ids, date] };
     const result = await cluster.query(query, options);
+    console.log(result.rows)
     return result.rows;
   } catch (error) {
     console.log(error);
